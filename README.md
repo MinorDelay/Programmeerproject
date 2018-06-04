@@ -13,4 +13,28 @@ the total amount of endangered fish to the amount of endangered marine fish or t
 This bar chart will be combined with a line graph showing the threatened species as % of the known species in that particular country.
 
 ![Visualization1](https://github.com/MinorDelay/Programmeerproject/blob/master/doc/Opzet_deel1.jpg)
-(This visualization is already possible due to the data from the following dataset: https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#)
+(This visualization is already possible due to the data from the following [dataset](https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#))
+
+Whether these fish become endangered via pollution of the water, overfishing or any other feasible explanation is why there will be a
+third visualization. This should easily provide some insight in what causes the fish to become endangered, and if we humans have any
+hand in these fish becoming nearly extinct.
+(This visualization is not yet possible due to not having found such a dataset. However adding this dataset will be a job for the coming
+days.)
+
+### Main features
+- Using a world map to visualize which countries have endangered fish species.
+- Visualize several variables as to how pressing the matter of these endangered species are and what causes these species to be
+endangered.
+
+### Datasources
+- [Fishdata](https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#)
+- Data that still has to be found.
+
+### External components
+- D3 functionalities
+- TopoJSON
+
+### Hardest part
+- Making sure that the visualizations and the way I want to depict these are complicated enough.
+
+Simon Kemmere (10798250)
