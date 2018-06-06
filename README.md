@@ -12,7 +12,7 @@ Using a world map I will visualize the amount of endangered fish species per cou
 the total amount of endangered fish to the amount of endangered marine fish or the amount of endangered freshwater fish for said country.
 This bar chart will be combined with a line graph showing the threatened species as % of the known species in that particular country.
 
-![Visualization1](https://github.com/MinorDelay/Programmeerproject/blob/master/doc/Opzet_deel1.jpg)
+![Visualization1](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/doc/Opzet_deel1.jpg)
 (This visualization is already possible due to the data from the following [dataset](https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#))
 
 Whether these fish become endangered via pollution of the water, overfishing or any other feasible explanation is why there will be a
