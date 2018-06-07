@@ -8,31 +8,31 @@ it may already be too late for several other living animals in the seas and fres
 problem may lead to the preservation of the biodiversity in our freshwaters and oceans.
 
 ### Visualizations
-Using a world map I will visualize the amount of endangered fish species per country via a bar chart. It will be possible to switch from
-the total amount of endangered fish to the amount of endangered marine fish or the amount of endangered freshwater fish for said country.
-This bar chart will be combined with a line graph showing the threatened species as % of the known species in that particular country.
+Using a world map I will visualize the amount of plastic a country produces (in tonnes). Then after clicking on a country the 
+amount of endangered fish species for that country will be displayed via a bar chart. Using a button the user will be
+able to switch to a pie chart showing the threatened species as % of the known species in that particular country.
+Ofcourse the user will then be able to be directed to the bar chart again using the button below the aforementioned button.
 
 ![Visualization1](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/doc/Opzet_deel1.jpg)
 (This visualization is already possible due to the data from the following [dataset](https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#))
 
-Whether these fish become endangered via pollution of the water, overfishing or any other feasible explanation is why there will be a
-third visualization. This should easily provide some insight in what causes the fish to become endangered, and if we humans have any
-hand in these fish becoming nearly extinct.
-(This visualization is not yet possible due to not having found such a dataset. However adding this dataset will be a job for the coming
-days.)
+When there's enough time I'd like to add another world map that can show over the years (2014-2016) what ports (harbours) do about the
+plastic waste in the oceans. TThe change over the years will be visualized via a slider. (The data from 2014 for this particular
+visualization can be found [here](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/data/ospar_fishing_litter_2014_01-other-OSPAR_Fishing_for_Litter_2014.xls)
 
 ### Main features
 - Using a world map to visualize which countries have endangered fish species.
-- Visualize several variables as to how pressing the matter of these endangered species are and what causes these species to be
-endangered.
+- Visualize several variables to show how pressing the matter of these endangered species are and what is done about the plastic
+pollution in the ocean.
 
 ### Datasources
 - [Fishdata](https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#)
-- Data that still has to be found.
+- [Plasticdata](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/data/UNEP-CHW-NREP-COMPI-2011-TotalsGeneratedHW.English.pdf)
 
 ### External components
 - D3 functionalities
 - TopoJSON
+- tooltip
 
 ### Hardest part
 - Making sure that the visualizations and the way I want to depict these are complicated enough.
