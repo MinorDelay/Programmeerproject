@@ -16,3 +16,8 @@ plastic was extracted from the ocean. If there's more time I'd like to add a sli
 - Today's goal is to make a design document clearly explaining the way I want to handle the abovementioned ideas.
 
 ## Thursday 7-6-18 / Day 2
+- Updated the readme after the commentary on my proposal.
+- Made the data I have accessible in csv format. Now I only need to jsonify it and then I can work with my data.
+This will be a job for tomorrow.
+- There will be a presentation for tomorrow. My group is at 11. So if there will be extra information online by the time it's 9 AM
+tomorrow I can do some preparations.
