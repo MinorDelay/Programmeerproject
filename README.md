@@ -13,8 +13,8 @@ amount of endangered fish species for that country will be displayed via a bar c
 able to switch to a pie chart showing the threatened species as % of the known species in that particular country.
 Ofcourse the user will then be able to be directed to the bar chart again using the button below the aforementioned button.
 
-![Visualization1](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/doc/Opzet_deel1.jpg)
-(This visualization is already possible due to the data from the following [dataset](https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE#))
+![Visualization1](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/doc/definitive_plan1.jpg)
+
 
 When there's enough time I'd like to add another world map that can show over the years (2014-2016) what ports (harbours) do about the
 plastic waste in the oceans. TThe change over the years will be visualized via a slider. (The data from 2014 for this particular
