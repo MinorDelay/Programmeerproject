@@ -18,7 +18,7 @@ Ofcourse the user will then be able to be directed to the bar chart again using 
 
 When there's enough time I'd like to add another world map that can show over the years (2014-2016) what ports (harbours) do about the
 plastic waste in the oceans. TThe change over the years will be visualized via a slider. (The data from 2014 for this particular
-visualization can be found [here](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/data/ospar_fishing_litter_2014_01-other-OSPAR_Fishing_for_Litter_2014.xls)
+visualization can be found [here](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/data/ospar_fishing_litter_2014_01-other-OSPAR_Fishing_for_Litter_2014.xls).
 
 ### Main features
 - Using a world map to visualize which countries have endangered fish species.
