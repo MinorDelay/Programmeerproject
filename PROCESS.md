@@ -26,4 +26,11 @@ tomorrow I can do some preparations.
 - Gave the introductory presentation of my github and my proposal. Went fine, got a tip to incorporate the oceanflows, so I can visualize
 how plastic ends up at the places it does. I think it's a good idea, but doesn't really suit my data and the way I've thought about
 implementing it all.
+- Wrote a function that loads in the csv files, containing my data, which then transforms my data to a usable format (json).
+Still thinking about of I want to keep it this way or if I want to store my data in a actual JSON-file. On monday I'll ask a TA about
+this.
+- This means that come monday I'll be able to start coding. I'll begin by making the map, then the bar chart, then the pie chart.
+Hopefully I can do the first two on monday, because making these are things I've already done before.
+
+## Monday 11-6-18 / Day 4
 
