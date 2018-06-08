@@ -21,3 +21,9 @@ plastic was extracted from the ocean. If there's more time I'd like to add a sli
 This will be a job for tomorrow.
 - There will be a presentation for tomorrow. My group is at 11. So if there will be extra information online by the time it's 9 AM
 tomorrow I can do some preparations.
+
+## Friday 8-6-18 / Day 3
+- Gave the introductory presentation of my github and my proposal. Went fine, got a tip to incorporate the oceanflows, so I can visualize
+how plastic ends up at the places it does. I think it's a good idea, but doesn't really suit my data and the way I've thought about
+implementing it all.
+
