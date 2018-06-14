@@ -4,3 +4,12 @@ Student number: 10798250
 Course: Programmeerproject
 Description: css file containing layout changes for index.html
 */
+
+/* style map */
+#map {
+  float: left;
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 20px;
+  background-color: white;
+}
