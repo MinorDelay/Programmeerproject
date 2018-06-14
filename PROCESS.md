@@ -33,4 +33,30 @@ this.
 Hopefully I can do the first two on monday, because making these are things I've already done before.
 
 ## Monday 11-6-18 / Day 4
+- Converted data into useful format. Started to work on the worldmap. Got the general outline, but didn't get as far as I'd hoped.
+- At the end of the day I realised that I needed to put in a little extra effort, so the slight lack of datapoints can be compensated.
+That got me thinking to create a map that can slide when dragging with the mouse, and can zoom when the mousewheel or a movement with
+the same capacity gets scrolled.
+
+## Tuesday 12-6-18 / Day 5
+- The idea from monday got me looking for an example that could show me how this could be accomplished. At first I only found an example
+that used the v3 version of d3. This led to the thought that I should use the old version of d3 throughout my project. At second thought
+I remembered what extra trouble this would give thinking back at the course dataprocessing assignment 3. 
+- After this range of thoughts I started searching better for an example that could help me create the desired map while using d3v4.
+- The example was found but the example would only run when called from the index.html, which I didn't want. After a few hours of
+staring I came to the conclusion that I appended the changes (zoom or drag map) to the wrong variable thus meaning that the map
+remain stationary.
+
+## Wednesday 13-6-18 / Day 6
+- Applied the solutions of the problems from tuesday. Thus meaning that the map works correctly. The only other problem I've encountered
+is the fact that the way the countries are colored (the more waste the more intense the coloring), are not ideal. Due to a relatively
+high deviation between plasticproduction in certain countries the scaling of those countries is off. Perhaps I should work on a more
+logarithmic scale or create buckets containing certain ranges of values who then represent a specific color.
+- Made a bar chart without update function. Update function is linked to worldmap. Something to do for next week.
+
+## Thursday 14-6-18 / Day 7
+- Started on my scatterplot. Came to the realisation that the way my data was structured is not useable for a scatter (or I don't know
+the right way for it). On the other hand I've found an example that should be quite good and useable for the way I want to represent my
+data (when the data is correctly structured).
+
 
