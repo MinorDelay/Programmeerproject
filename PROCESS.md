@@ -72,6 +72,9 @@ data (when the data is correctly structured).
 having window.onload in every scriptfile.).
 
 ## Wednesday 20-6-18 / Day 11
+- Rewrote the navbar. Works good now. Considering a dropdown menu for each individual visualisation.
+- Rewrote my main.js, now everything loads at the right time. A lot of bugs got fixed by this.
+- I can show all visualisations at once now. Now I only need to let them interact with eachother.
 
 
 
