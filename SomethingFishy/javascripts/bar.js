@@ -11,22 +11,20 @@
     .defer(d3.json, "./data/threatenedFish.json")
     .await(loadBar);
 
-  var margin = {height: 75, width: 75},
-  w = document.getElementById("barCol").clientWidth,
-  h = 500,
-  barPadding = 5;
-
-  console.log(w)
-
 function loadBar(error, threatenedFish) {
     if (error) throw error;
+
+    var margin = {height: 75, width: 75},
+    barWidth = document.getElementById("barCol").clientWidth,
+    barHeight = 500,
+    barPadding = 5;
 
     // svg for barchart
     var barSvg = d3.select("#bar")
                      .append("svg")
                      .attr("id", "barChart")
-                     .attr("width", w)
-                     .attr("height", h)
+                     .attr("width", barWidth)
+                     .attr("height", barHeight)
                      .append("g")
                      .attr("transform", "translate(" + margin.width + "," + (- margin.height) + ")");
 
@@ -45,21 +43,21 @@ function loadBar(error, threatenedFish) {
     // x scale for bar chart
     var xScale = d3.scaleBand()
                    .domain(["Total threatened fish", "Threatened marine fish", "Threatened freshwater fish"])
-                   .rangeRound([0, w - margin.width]);
+                   .rangeRound([0, barWidth - margin.width]);
 
     // y scale for bar chart
     var yScale = d3.scaleLinear()
-                   .range([h, margin.height])
+                   .range([barHeight, margin.height])
                    .domain([0, 409])
 
     // add the x Axis
     barSvg.append("g")
             .attr("class", "x-axis")
-            .attr("transform", "translate(0," + h + ")")
+            .attr("transform", "translate(0," + barHeight + ")")
             .call(d3.axisBottom(xScale))
             .append("text")
-            .attr("x", w/2)
-            .attr("dy", "3em")
+            .attr("x", barWidth/2)
+            .attr("dy", "4em")
             .style("tex-anchor", "middle")
             .style("font-size", "14px")
             .style("fill", "black")
@@ -73,7 +71,7 @@ function loadBar(error, threatenedFish) {
             .attr("class", "label")
             .attr("transform", "rotate(-90)")
             .attr("x", - margin.height)
-            .attr("y", - (0.6 * margin.width))
+            .attr("y", - (0.8 *margin.width))
             .attr("dy", "1em")
             .style("text-anchor", "end")
             .style("font-size", "14px")
@@ -87,7 +85,7 @@ function loadBar(error, threatenedFish) {
             .append("rect")
             .attr("class", "bars")
             .attr("width", xScale.bandwidth() - barPadding)
-            .attr("height", function(d) {return h - yScale(d)})
+            .attr("height", function(d) {return barHeight - yScale(d)})
             .attr("x", function(d, i) {
               return i * (xScale.bandwidth()) + barPadding;
             })

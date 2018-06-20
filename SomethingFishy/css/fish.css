@@ -11,14 +11,16 @@ Description: css file containing layout changes for index.html
   background-color: white;
 }
 
-#mapCol {
+#story {
   padding: 0;
-  margin: 0;
 }
 
-#barCol {
+#Variables {
   padding: 0;
-  margin: 0;
+}
+
+#visualisations {
+  padding: 0;
 }
 
 /* creates a small triangle extender for the tooltip */

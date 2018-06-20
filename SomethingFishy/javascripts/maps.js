@@ -1,4 +1,3 @@
-// window.onload = function () {
 
 // queue for loading data
 d3.queue()
@@ -6,20 +5,16 @@ d3.queue()
   .defer(d3.csv, "./data/plasticWaste.csv")
   .await(createMap);
 
-  var width = document.getElementById("mapCol").clientWidth,
-  height = 500,
-  initX,
-  mouse,
-  mouseClicked = false,
-  s = 1,
-  rotated = 0;
-
   function createMap(error, map, plasticData) {
 
     if (error) throw error;
-    var plasticPerCountry = [];
-    var maxProd = [];
-    var myCountries = [];
+
+    var mapHeight = 500,
+    mapWidth = document.getElementById("mapCol").clientWidth,
+    rotated = 0,
+    plasticPerCountry = [],
+    maxProd = [],
+    myCountries = [];
 
     plasticData.forEach(function(d) {
       plasticPerCountry.push({[d.Country] : +d.Waste});
@@ -35,14 +30,14 @@ d3.queue()
     var mapSvg = d3.select("#map")
                 .append("svg")
                 .attr("id", "worldmap")
-                .attr("width", width)
-                .attr("height", height)
+                .attr("width", mapWidth)
+                .attr("height", mapHeight)
                 .append("g");
 
 
     var projection = d3.geoMercator()
-                       .scale(100)
-                       .translate([width/2.1,height/1.5])
+                       .scale(mapWidth/6)
+                       .translate([mapWidth/2,mapHeight/1.5])
                        .rotate([rotated,0,0]);
 
     var path = d3.geoPath()
@@ -97,11 +92,16 @@ d3.queue()
          .on("mouseout", mapTip.hide)
     });
 
-    moveMap(mapSvg, path)
+    moveMap(mapSvg, path, mapWidth, mapHeight, rotated)
   }
 
   // function to make the world map
-  function moveMap(mapSvg, path) {
+  function moveMap(mapSvg, path, mapWidth, mapHeight, rotated) {
+
+    var initX,
+    mouse,
+    mouseClicked = false,
+    s = 1;
 
     var zoom = d3.zoom()
                  .scaleExtent([1, 5])
@@ -121,7 +121,7 @@ d3.queue()
        .call(zoom);
 
     function rotateMap(endX) {
-      projection.rotate([(rotated + (endX - initX) * 360) / (s * width),0,0]);
+      projection.rotate([(rotated + (endX - initX) * 360) / (s * mapWidth),0,0]);
 
       mapSvg.selectAll("path")
          .attr("d", path);
@@ -129,8 +129,7 @@ d3.queue()
 
     function zoomended(){
       if(s !== 1) return;
-      // rotated = rotated + ((d3.mouse(this)[0] - initX) * 360 / (s * width));
-      rotated = rotated + ((mouse[0] - initX) * 360 / (s * width));
+      rotated = rotated + ((mouse[0] - initX) * 360 / (s * mapWidth));
       mouseClicked = false;
     }
 
@@ -140,14 +139,14 @@ d3.queue()
       var h = 0;
 
       t[0] = Math.min(
-        (width/height)  * (s - 1),
-        Math.max( width * (1 - s), t[0] )
+        (mapWidth/mapHeight)  * (s - 1),
+        Math.max( mapWidth * (1 - s), t[0] )
       );
 
 
       t[1] = Math.min(
         h * (s - 1) + h * s,
-        Math.max(height  * (1 - s) - h * s, t[1])
+        Math.max(mapHeight  * (1 - s) - h * s, t[1])
       );
 
       mapSvg.attr("transform", "translate(" + t + ")scale(" + s + ")");
