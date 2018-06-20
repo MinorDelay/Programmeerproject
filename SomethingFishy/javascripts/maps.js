@@ -1,25 +1,22 @@
-window.onload = function () {
+// window.onload = function () {
 
 // queue for loading data
 d3.queue()
-  .defer(d3.json, "map.topojson")
-  .defer(d3.csv, "plasticWaste.csv")
+  .defer(d3.json, "javascripts/map.topojson")
+  .defer(d3.csv, "./data/plasticWaste.csv")
   .await(createMap);
 
-  var width = 700,
+  var width = document.getElementById("mapCol").clientWidth,
   height = 500,
   initX,
+  mouse,
   mouseClicked = false,
   s = 1,
   rotated = 0;
 
-  //need to store this because on zoom end, using mousewheel, mouse position is NAN
-  var mouse;
-
   function createMap(error, map, plasticData) {
 
     if (error) throw error;
-
     var plasticPerCountry = [];
     var maxProd = [];
     var myCountries = [];
@@ -35,16 +32,17 @@ d3.queue()
 
     var countries = topojson.feature(map, map.objects.countries1).features;
 
-    var svg = d3.select("body")
+    var mapSvg = d3.select("#map")
                 .append("svg")
+                .attr("id", "worldmap")
                 .attr("width", width)
                 .attr("height", height)
                 .append("g");
 
 
     var projection = d3.geoMercator()
-                       .scale(115)
-                       .translate([width/2,height/1.5])
+                       .scale(100)
+                       .translate([width/2.1,height/1.5])
                        .rotate([rotated,0,0]);
 
     var path = d3.geoPath()
@@ -67,19 +65,20 @@ d3.queue()
                                    return maxProd[a] + " tonnes.";
                                  }
                                  else {
-                                     return "unknown"
+                                     return "unknown."
                                  }}
                                  return "The plastic production in " + location(d) + " is " + production(d);
                     });
 
     // call tip function
-    svg.call(mapTip);
+    mapSvg.call(mapTip);
 
     d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world) {
       if(error) throw error;
 
       // drawing countries and select tooltip
-      svg.selectAll(".countries")
+
+      mapSvg.selectAll(".countries")
          .data(countries)
          .enter()
          .append("path")
@@ -88,28 +87,28 @@ d3.queue()
          .style("fill", function(d) {
            if (myCountries.includes(d.properties.name)){
              var a = myCountries.indexOf(d.properties.name)
-             return "rgba(0," + ((maxProd[a] / maxPlastic) * 255)+ ", 50, 0.6)"
+             return "rgba(100," + ((maxProd[a] / maxPlastic) * 255)+ ", 200, 0.6)"
            }
            else {
-             return "pink";
+             return "grey";
            }
          })
          .on("mouseover", mapTip.show)
          .on("mouseout", mapTip.hide)
     });
 
-    moveMap(svg, path)
+    moveMap(mapSvg, path)
   }
 
   // function to make the world map
-  function moveMap(svg, path) {
+  function moveMap(mapSvg, path) {
 
     var zoom = d3.zoom()
                  .scaleExtent([1, 5])
                  .on("zoom", zoomed)
                  .on("end", zoomended);
 
-    svg.on("wheel", function() {
+    mapSvg.on("wheel", function() {
             //zoomend needs mouse coords
             initX = d3.mouse(this)[0];
           })
@@ -124,7 +123,7 @@ d3.queue()
     function rotateMap(endX) {
       projection.rotate([(rotated + (endX - initX) * 360) / (s * width),0,0]);
 
-      svg.selectAll("path")
+      mapSvg.selectAll("path")
          .attr("d", path);
     }
 
@@ -151,7 +150,7 @@ d3.queue()
         Math.max(height  * (1 - s) - h * s, t[1])
       );
 
-      svg.attr("transform", "translate(" + t + ")scale(" + s + ")");
+      mapSvg.attr("transform", "translate(" + t + ")scale(" + s + ")");
 
       //adjust the stroke width based on zoom level
       d3.selectAll(".countries").style("stroke-width", 1 / s);
@@ -165,4 +164,4 @@ d3.queue()
       }
     }
   }
-}
+// }

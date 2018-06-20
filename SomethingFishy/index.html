@@ -6,20 +6,95 @@ Description: File containing the main html so the project can be run -->
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Threatened fishspecies and plastic production</title>
-        <link rel="stylesheet" type="text/css" href="fish.css">
-        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/fish.css">
         <script src="http://d3js.org/d3.v4.min.js"></script>
-        <script src="d3-tip.js"></script>
-        <script src="pie.js"></script>
-        <!-- <script src="maps.js"></script> -->
-    </head>
+        <script src="https://d3js.org/topojson.v1.min.js"></script>
+        <script src="javascripts/d3-tip.js"></script>
+        <script src="javascripts/maps.js"></script>
+        <script src="javascripts/bar.js"></script>
+        <script src="javascripts/pie.js"></script>
+        <script src="javascripts/main.js"></script>
+      </head>
     <body>
-    <div id = "bar"></div>
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
+      <a class="navbar-brand" href="#"><strong>Content</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Storytelling</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Plastic production</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Threatened fispspecies</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Visualisations</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
+    <div class="jumbotron text-center" id="top">
+      <h1>Interactive map of Europe</h1>
+        <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
+        <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
+          and <a href=" https://data.oecd.org/earnwage/average-wages.htm#indicator-chart">Average wage</a></h1>
+        </p>
+    </div>
+    <div class="container" id="story">
+      <br>
+      <br>
+      <h2 class="title">Storytelling</h2>
+      <p>
+        Changes to the current ecosystems in our oceans are being detected (SOURCE). These changes are mainly due to overfishing,
+        but the second biggest influence can be led back to the amount of plastic found in oceans. Considering reports from all over the world (SOURCE)
+        there can only be one conclusion: the amount of plastic that can be found in the ocean has significantly increased. Fish, mammals and other living creatures
+        in the oceans are being deformed via plastics or die after ingesting these plastics, either through choking or just of the quantity of ingested plastic.
+        This(SOURCE NRC) pilot whale ate 8 kilogrammes of plastic and then wound up on a beach in Thailand. This report is part of a series, where it becomes clear
+        that there's a certain urgency to solve this problem. To further help ignite this flame of urgency, this website will guide the reader through a series of
+        visualisations concerning the production of plastic in several countries over the world, the amount of threatened fish species in some of these countries and
+        what is being done over the years (2014-2016) by countries to decrease the amount of plastic in the oceans.
+    </div>
+    <div class="container" id="Variables explained">
+     <div class="row">
+       <div class="col-sm-6">
+         <h2 class="bullets">Plastic production</h2>
+         <p>
+
+         </p>
+      </div>
+      <div class="col-sm-6">
+        <h2 class="bullets">Threatened fish species</h2>
+        <p>
+        </p>
+      </div>
+    </div>
+    </div>
+    <div class="container" id="visualisations">
+    <h2 class="title">Visualisations</h2>
+    <div class="row">
+      <div class="col-sm-6" id="mapCol">
+        <div id = "map"></div>
+      </div>
+      <div class="col-sm-6" id="barCol">
+        <div id = "bar"></div>
+      </div>
+    </div>
     <div id = "pie"></div>
-    </body>
+
+  </body>
 </html>
