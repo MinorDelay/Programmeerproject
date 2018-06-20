@@ -15,88 +15,87 @@ Description: File containing the main html so the project can be run -->
         <script src="http://d3js.org/d3.v4.min.js"></script>
         <script src="https://d3js.org/topojson.v1.min.js"></script>
         <script src="javascripts/d3-tip.js"></script>
-        <script src="javascripts/maps.js"></script>
         <script src="javascripts/bar.js"></script>
+        <script src="javascripts/maps.js"></script>
         <script src="javascripts/pie.js"></script>
-        <!-- <script src="javascripts/main.js"></script> -->
+        <script src="javascripts/main.js"></script>
       </head>
     <body>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark pink scrolling-navbar">
-      <a class="navbar-brand" href="#"><strong>Content</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Storytelling</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Plastic production</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Threatened fispspecies</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">Visualisations</a>
-              </li>
+      <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Something Fishy</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#story">Storytelling</a></li>
+            <li><a href="#Variables">Variables explained</a></li>
+            <!-- <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Visualisations
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#mapCol">Worldmap</a></li>
+                <li><a href="#bar">Bar chart</a></li>
+                <li><a href="#pie">Pie chart</a></li>
+              </ul>
+            </li> -->
+            <li><a href="#">Sources</a></li>
           </ul>
-      </div>
-  </nav>
+        </div>
+      </nav>
 
-    <div class="jumbotron text-center" id="top">
-      <h1>Interactive map of Europe</h1>
-        <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
-        <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
-          and <a href=" https://data.oecd.org/earnwage/average-wages.htm#indicator-chart">Average wage</a></h1>
-        </p>
-    </div>
-    <div class="container" id="story">
-      <br>
-      <br>
-      <h2 class="title">Storytelling</h2>
-      <p>
-        Changes to the current ecosystems in our oceans are being detected (SOURCE). These changes are mainly due to overfishing,
-        but the second biggest influence can be led back to the amount of plastic found in oceans. Considering reports from all over the world (SOURCE)
-        there can only be one conclusion: the amount of plastic that can be found in the ocean has significantly increased. Fish, mammals and other living creatures
-        in the oceans are being deformed via plastics or die after ingesting these plastics, either through choking or just of the quantity of ingested plastic.
-        This(SOURCE NRC) pilot whale ate 8 kilogrammes of plastic and then wound up on a beach in Thailand. This report is part of a series, where it becomes clear
-        that there's a certain urgency to solve this problem. To further help ignite this flame of urgency, this website will guide the reader through a series of
-        visualisations concerning the production of plastic in several countries over the world, the amount of threatened fish species in some of these countries and
-        what is being done over the years (2014-2016) by countries to decrease the amount of plastic in the oceans.
-    </div>
-    <div class="container" id="Variables">
-     <div class="row">
-       <div class="col-sm-6" id="test">
-         <h2 class="bullets">Plastic production</h2>
-         <p>
-
-         </p>
+      <div class="jumbotron text-center" id="top">
+        <h1>Interactive map of Europe</h1>
+          <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
+          <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
+            and <a href=" https://data.oecd.org/earnwage/average-wages.htm#indicator-chart">Average wage</a></h1>
+          </p>
       </div>
-      <div class="col-sm-6">
-        <h2 class="bullets">Threatened fish species</h2>
+      <div class="container" id="story">
+        <br>
+        <br>
+        <h2 class="title">Storytelling</h2>
         <p>
-        </p>
+          Changes to the current ecosystems in our oceans are being detected (SOURCE). These changes are mainly due to overfishing,
+          but the second biggest influence can be led back to the amount of plastic found in oceans. Considering reports from all over the world (SOURCE)
+          there can only be one conclusion: the amount of plastic that can be found in the ocean has significantly increased. Fish, mammals and other living creatures
+          in the oceans are being deformed via plastics or die after ingesting these plastics, either through choking or just of the quantity of ingested plastic.
+          This(SOURCE NRC) pilot whale ate 8 kilogrammes of plastic and then wound up on a beach in Thailand. This report is part of a series, where it becomes clear
+          that there's a certain urgency to solve this problem. To further help ignite this flame of urgency, this website will guide the reader through a series of
+          visualisations concerning the production of plastic in several countries over the world, the amount of threatened fish species in some of these countries and
+          what is being done over the years (2014-2016) by countries to decrease the amount of plastic in the oceans.
       </div>
-    </div>
-    </div>
-    <div class="container" id="visualisations">
-    <h2 class="title">Visualisations</h2>
-    <div class="row">
-      <div class="col-sm-6" id="mapCol">
-        <h2 class="bullets">Worldmap</h2>
-        <div id = "map"></div>
-      </div>
-      <div class="col-sm-6" id="barCol">
-        <h2 class="bullets">Bar chart</h2>
-        <div id = "bar"></div>
-      </div>
-    </div>
-    <div id = "pie"></div>
+      <div class="container" id="Variables">
+       <div class="row">
+         <div class="col-sm-6" id="test">
+           <h2 class="bullets">Plastic production</h2>
+           <p>
 
+           </p>
+        </div>
+        <div class="col-sm-6">
+          <h2 class="bullets">Threatened fish species</h2>
+          <p>
+          </p>
+        </div>
+      </div>
+      </div>
+      <div class="container" id="visualisations">
+      <h2 class="title">Visualisations</h2>
+      <div class="row" id="worldBar">
+        <div class="col-sm-6" id="mapCol">
+          <h2 class="bullets">Worldmap</h2>
+          <div id = "map"></div>
+        </div>
+        <div class="col-sm-6" id="barCol">
+          <h2 class="bullets">Bar chart</h2>
+          <div id = "bar"></div>
+        </div>
+      </div>
+      <div class="row" id="pieVis">
+        <div class="col-sm-6" id="pieCol">
+          <h2 class="bullets">Pie chart</h2>
+          <div id = "pie"></div>
+      </div>
   </body>
 </html>

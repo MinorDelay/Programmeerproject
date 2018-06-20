@@ -11,18 +11,6 @@ Description: css file containing layout changes for index.html
   background-color: white;
 }
 
-#story {
-  padding: 0;
-}
-
-#Variables {
-  padding: 0;
-}
-
-#visualisations {
-  padding: 0;
-}
-
 /* creates a small triangle extender for the tooltip */
 .map-tip:after {
   box-sizing: border-box;

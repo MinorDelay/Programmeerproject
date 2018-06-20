@@ -1,6 +1,17 @@
 window.onload = function () {
 
-  createMap()
-  loadBar()
-  createPie()
-}
+  d3.queue()
+    .defer(d3.json, "javascripts/map.topojson")
+    .defer(d3.csv, "./data/plasticWaste.csv")
+    .defer(d3.json, "./data/threatenedFish.json")
+    .defer(d3.json, "./data/fishPercnew.json")
+    .awaitAll(callFunctions);
+
+  function callFunctions(error, response) {
+      if (error) throw error;
+
+      createMap(error, response[0], response[1])
+      loadBar(error, response[2])
+      createPie(error, response[3])
+  }
+};

@@ -5,31 +5,28 @@
 * Description: file containing the script that runs the bar chart
 */
 // window.onload = function() {
-
-  // queue for loading data
-  d3.queue()
-    .defer(d3.json, "./data/threatenedFish.json")
-    .await(loadBar);
+  var margin, barSvg, barWidth, barHeight, barPadding, country, xScale, yScale, barTip;
 
 function loadBar(error, threatenedFish) {
     if (error) throw error;
 
-    var margin = {height: 75, width: 75},
-    barWidth = document.getElementById("barCol").clientWidth,
-    barHeight = 500,
+    margin = {height: 75, width: 75};
+    barWidth = document.getElementById("barCol").clientWidth - 30;
+    barHeight = 500;
     barPadding = 5;
+    country = Object.keys(threatenedFish[0]);
 
     // svg for barchart
-    var barSvg = d3.select("#bar")
-                     .append("svg")
-                     .attr("id", "barChart")
-                     .attr("width", barWidth)
-                     .attr("height", barHeight)
-                     .append("g")
-                     .attr("transform", "translate(" + margin.width + "," + (- margin.height) + ")");
+    barSvg = d3.select("#bar")
+               .append("svg")
+               .attr("id", "barChart")
+               .attr("width", barWidth)
+               .attr("height", barHeight)
+               .append("g")
+               .attr("transform", "translate(" + margin.width + "," + (- margin.height) + ")");
 
    // create tip for barchart
-   var barTip = d3.tip()
+   barTip = d3.tip()
                .attr("class", "bar-tip")
                .attr("opacity", 0.5)
                .offset([-20, 0])
@@ -38,17 +35,17 @@ function loadBar(error, threatenedFish) {
                });
 
     // call tip for bar
-    barSvg.call(barTip)
+    barSvg.call(barTip);
 
     // x scale for bar chart
-    var xScale = d3.scaleBand()
+    xScale = d3.scaleBand()
                    .domain(["Total threatened fish", "Threatened marine fish", "Threatened freshwater fish"])
                    .rangeRound([0, barWidth - margin.width]);
 
     // y scale for bar chart
-    var yScale = d3.scaleLinear()
+    yScale = d3.scaleLinear()
                    .range([barHeight, margin.height])
-                   .domain([0, 409])
+                   .domain([0, 409]);
 
     // add the x Axis
     barSvg.append("g")
@@ -85,34 +82,42 @@ function loadBar(error, threatenedFish) {
             .append("rect")
             .attr("class", "bars")
             .attr("width", xScale.bandwidth() - barPadding)
-            .attr("height", function(d) {return barHeight - yScale(d)})
+            .attr("height", function(d) {
+              return barHeight - yScale(d);
+            })
             .attr("x", function(d, i) {
               return i * (xScale.bandwidth()) + barPadding;
             })
-            .attr("y", function(d) {return yScale(d)})
+            .attr("y", function(d) {
+              return yScale(d);
+            })
             .style("fill", "blue")
             .on("mouseover", barTip.show)
             .on("mouseout", barTip.hide)
 
+    // change data in bar chart, changes when clicked on country
+    function swapBarData() {
 
-    // // change data in bar chart, changes when clicked on country
-    // function swapData(d) {
-    //   barChart.selectAll(".bars")
+      console.log("hoi")
+    //   barSvg.selectAll(".bars")
     //           .remove()
-    //   barChart.selectAll(".bars")
-    //           .data(function (d) {
-    //             if (myCountries.indexOf(d.properties.name))
+    //   barSvg.selectAll(".bars")
+    //           .data(threatenedFish[0][country.indexOf(d.properties.name)])
     //           .enter()
     //           .append("rect")
     //           .attr("class", "bars")
     //           .attr("width", xScale.bandwidth() - barPadding)
-    //           .attr("height", function(d) {return h -yScale(d)})
+    //           .attr("height", function(d) {
+    //             return barHeight -yScale(d);
+    //           })
     //           .attr("x", function(d, i) {
     //             return i * (xScale.bandwidth()) + barPadding;
     //           })
-    //           .attr("y", function(d) {return yScale(d)})
+    //           .attr("y", function(d) {
+    //             return yScale(d);
+    //           })
     //           .style("fill", "blue")
     //           .on("mouseover", barTip.show)
     //           .on("mouseout", barTip.hide)
     }
-  // }
+  }
