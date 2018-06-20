@@ -59,4 +59,19 @@ logarithmic scale or create buckets containing certain ranges of values who then
 the right way for it). On the other hand I've found an example that should be quite good and useable for the way I want to represent my
 data (when the data is correctly structured).
 
+## Friday 15-6-18 / Day 8
+- Held a presentations and went to work on my piechart. Didn't get very far, but the things I learned about a piechart were via bl.ocks.org. I decomposed the code in such a way that became clear what every line of code was used for.
+
+## Monday 18-6-18 / Day 9
+- Made the pie chart. Had some trouble with the way my data was structured. After some help of a TA I managed to plot the pie chart.
+- Made some changes to my storyline.
+
+## Tuesday 19-6-18 / Day 10
+- Added a navbar. Still needs to be implemented correctly (aesthetics aren't real smooth).
+- Decided to create a main.js that calls all functions (This was a solution for my scripts not loading all at once, which was due to
+having window.onload in every scriptfile.).
+
+## Wednesday 20-6-18 / Day 11
+
+
 
