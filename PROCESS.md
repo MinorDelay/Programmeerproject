@@ -76,5 +76,14 @@ having window.onload in every scriptfile.).
 - Rewrote my main.js, now everything loads at the right time. A lot of bugs got fixed by this.
 - I can show all visualisations at once now. Now I only need to let them interact with eachother.
 
+## Thursday 21-6-18 / Day 12
+- Added interaction between barchart and worldmap.
+- Added interaction between piechart and worldmap. (almost working, minor bugs)
+- Need to add legend, codewise the basis is present for the legend.
+- Added extra worldmap. This is for the fourth visualisation, when there's time I'll do that.
+- For this extra visualisation I've added a slider.
+
+I think mvp is done.
+
 
 
