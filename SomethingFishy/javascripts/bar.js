@@ -5,7 +5,7 @@
 * Description: file containing the script that runs the bar chart
 */
 // window.onload = function() {
-  var margin, barSvg, barWidth, barHeight, barPadding, country, xScale, yScale, barTip;
+  var barSvg, barWidth, barHeight, barPadding, country, xScale, yScale, barTip, fish;
 
 function loadBar(error, threatenedFish) {
     if (error) throw error;
@@ -14,7 +14,8 @@ function loadBar(error, threatenedFish) {
     barWidth = document.getElementById("barCol").clientWidth - 30;
     barHeight = 500;
     barPadding = 5;
-    country = Object.keys(threatenedFish[0]);
+    country = Object.keys(threatenedFish[0]),
+    fish = threatenedFish;
 
     // svg for barchart
     barSvg = d3.select("#bar")
@@ -77,7 +78,7 @@ function loadBar(error, threatenedFish) {
 
     // drawing bars of bar chart
     barSvg.selectAll(".bars")
-            .data(threatenedFish[0]["Belgium"])
+            .data(fish[0]["Poland"])
             .enter()
             .append("rect")
             .attr("class", "bars")
@@ -94,30 +95,53 @@ function loadBar(error, threatenedFish) {
             .style("fill", "blue")
             .on("mouseover", barTip.show)
             .on("mouseout", barTip.hide)
+  }
 
     // change data in bar chart, changes when clicked on country
-    function swapBarData() {
+    function swapBarData(d) {
+      document.getElementById("barChartTitle").innerHTML = "Bar chart: " + d.properties.name
+      
+      barSvg.selectAll(".bars")
+            .remove()
 
-      console.log("hoi")
-    //   barSvg.selectAll(".bars")
-    //           .remove()
-    //   barSvg.selectAll(".bars")
-    //           .data(threatenedFish[0][country.indexOf(d.properties.name)])
-    //           .enter()
-    //           .append("rect")
-    //           .attr("class", "bars")
-    //           .attr("width", xScale.bandwidth() - barPadding)
-    //           .attr("height", function(d) {
-    //             return barHeight -yScale(d);
-    //           })
-    //           .attr("x", function(d, i) {
-    //             return i * (xScale.bandwidth()) + barPadding;
-    //           })
-    //           .attr("y", function(d) {
-    //             return yScale(d);
-    //           })
-    //           .style("fill", "blue")
-    //           .on("mouseover", barTip.show)
-    //           .on("mouseout", barTip.hide)
+      if (typeof fish[0][d.properties.name] === "undefined") {
+        barSvg.selectAll(".bars")
+              .data([0,0,0])
+              .enter()
+              .append("rect")
+              .attr("class", "bars")
+              .attr("width", xScale.bandwidth() - barPadding)
+              .attr("height", function(d) {
+                return barHeight -yScale(d);
+              })
+              .attr("x", function(d, i) {
+                return i * (xScale.bandwidth()) + barPadding;
+              })
+              .attr("y", function(d) {
+                return yScale(d);
+              })
+              .style("fill", "blue")
+              .on("mouseover", barTip.show)
+              .on("mouseout", barTip.hide);
+      }
+      else {
+      barSvg.selectAll(".bars")
+            .data(fish[0][d.properties.name])
+            .enter()
+            .append("rect")
+            .attr("class", "bars")
+            .attr("width", xScale.bandwidth() - barPadding)
+            .attr("height", function(d) {
+              return barHeight -yScale(d);
+            })
+            .attr("x", function(d, i) {
+              return i * (xScale.bandwidth()) + barPadding;
+            })
+            .attr("y", function(d) {
+              return yScale(d);
+            })
+            .style("fill", "blue")
+            .on("mouseover", barTip.show)
+            .on("mouseout", barTip.hide)
     }
-  }
+}

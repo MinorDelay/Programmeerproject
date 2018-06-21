@@ -10,8 +10,10 @@ window.onload = function () {
   function callFunctions(error, response) {
       if (error) throw error;
 
-      createMap(error, response[0], response[1])
       loadBar(error, response[2])
       createPie(error, response[3])
+      createMap(error, response[0], response[1])
+      createHarbour(error, response[0])
+
   }
 };

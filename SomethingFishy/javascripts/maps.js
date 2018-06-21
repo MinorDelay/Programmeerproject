@@ -5,7 +5,7 @@
     if (error) throw error;
 
     var mapHeight = 500,
-    mapWidth = (document.getElementById("mapCol").clientWidth - 30),
+    mapWidth = (document.getElementById("worldmap").clientWidth),
     rotated = 0,
     plasticPerCountry = [],
     maxProd = [],
@@ -31,7 +31,7 @@
 
 
     var projection = d3.geoMercator()
-                       .scale(mapWidth/6)
+                       .scale(mapWidth/10)
                        .translate([mapWidth/2,mapHeight/1.5])
                        .rotate([rotated,0,0]);
 
@@ -51,30 +51,25 @@
                                    return d.properties.name;
                                }}
                     var production = function (d){ if (myCountries.includes(d.properties.name)){
-                                   var a = myCountries.indexOf(d.properties.name)
-                                   return maxProd[a] + " tonnes.";
-                                 }
-                                 else {
-                                     return "unknown.";
-                                 }}
-                                 return "The plastic production in " + location(d) + " is " + production(d);
-                    });
+                                        var a = myCountries.indexOf(d.properties.name)
+                                        return maxProd[a] + " tonnes.";
+                                      }
+                                      else {
+                                        return "unknown.";
+                                      }}
+                                      return "The plastic production in " + location(d) + " is " + production(d);
+                                    });
 
     // call tip function
     mapSvg.call(mapTip);
 
-    d3.json("https://unpkg.com/world-atlas@1/world/110m.json", function(error, world) {
-      if(error) throw error;
-
-      // drawing countries and select tooltip
-
-      mapSvg.selectAll(".countries")
-         .data(countries)
-         .enter()
-         .append("path")
-         .attr("class", "countries")
-         .attr("d", path)
-         .style("fill", function(d) {
+    mapSvg.selectAll(".countries")
+          .data(countries)
+          .enter()
+          .append("path")
+          .attr("class", "countries")
+          .attr("d", path)
+          .style("fill", function(d) {
            if (myCountries.includes(d.properties.name)){
              var a = myCountries.indexOf(d.properties.name)
              return "rgba(100," + ((maxProd[a] / maxPlastic) * 255)+ ", 200, 0.6)";
@@ -82,11 +77,13 @@
            else {
              return "grey";
            }
-         })
-         .on("mouseover", mapTip.show)
-         .on("mouseout", mapTip.hide)
-         .on("click", swapBarData)
-    });
+          })
+          .on("mouseover", mapTip.show)
+          .on("mouseout", mapTip.hide)
+          .on("click", function (d){
+            swapBarData(d)
+            swapPieData(d);
+          });
 
     moveMap(mapSvg, path, mapWidth, mapHeight, rotated, projection)
   };
@@ -126,8 +123,7 @@
     function zoomended(){
       if(s !== 1) return;
       if (mouseClicked === true) {
-        rotated = rotated + ((mouse[0] - initX) * 360 / (s * mapWidth));
-        mouseClicked = false;
+        return;
       }
       else {
         rotated = rotated + ((mouse[0] - initX) * 360 / (s * mapWidth));
@@ -159,10 +155,63 @@
       mouse = d3.mouse(this);
 
       if(s !== 1 && mouseClicked) {
-        // rotateMap(d3.mouse(this)[0]);
         rotateMap(mouse[0]);
         return;
       }
     }
   }
+
+//   // legend function
+// function Legend() {
+//
+//   // drawing svg for legend
+//   var legendSvg = d3.select("#legend")
+//                     .append("svg")
+//                     .attr("id", "legend-svg")
+//                     .attr("height", margin.height)
+//                     .attr("width", 1.5 * w)
+//                     .append("g")
+//                     .attr("transform", "translate(" + 0.5 * margin.width + ",0)")
+//                     .attr("id", "legend-id")
+//
+//   // x scale for legend
+//   var xScaleLegend = d3.scaleLinear()
+//                   .domain([d3.min(maxWage), d3.max(maxWage)])
+//                   .range([1, w + 2 * margin.width])
+//
+//   // call x-axis legend
+//   var xAxisLegend = d3.axisBottom(xScaleLegend)
+//                       .tickSize(7)
+//                       .tickValues(color.domain())
+//
+//   var legend = d3.select("#legend-id")
+//                  .call(xAxisLegend)
+//
+//   // drawing of the mini bars of the legend
+//   legend.selectAll("rect")
+//            .data(color.range().map(function(d) {
+//              var a = color.invertExtent(d)
+//              if (a[0] == null) a[0] = xScaleLegend.domain()[0];
+//              if (a[1] == null) a[1] = xScaleLegend.domain()[1];
+//              return a;
+//            }))
+//            .enter()
+//            .insert("rect", "tick")
+//            .attr("height", 8)
+//            .attr("width", function(d) { return xScaleLegend(d[1]) - xScaleLegend(d[0]); })
+//            .attr("x", function(d) { return xScaleLegend(d[0]); })
+//            .attr("fill", function(d) { return color(d[0]); })
+//
+//     // text of legend
+//     legend.append("text")
+//               .attr("id", "legend-text")
+//               .attr("text-anchor", "end")
+//               .attr("font-size", "14px")
+//               .attr("fill", "black")
+//               .attr("x", 150)
+//               .attr("y", 35)
+//               .text("Height of average wage")
 // }
+//
+// // call legend
+// Legend();

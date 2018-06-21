@@ -5,63 +5,108 @@
 * Description: file containing the script that runs the pie chart
 */
 
-// window.onload = function () {
+  var fishes, pieSvg, color, path, label, pie, arcBorder;
 
-// function makePie(){}
-// queue for loading data
-    function createPie (error, data) {
-      if (error) throw error;
+  function createPie (error, data) {
+    if (error) throw error;
 
-      var margin = {height: 75, width: 75},
-      pieWidth = document.getElementById("pieCol").clientWidth,
-      pieHeight = 500,
-      radius = Math.min(pieWidth, pieHeight) / 2,
-      country = Object.keys(data[0]),
-      marineFresh = Object.values(data[0]);
+    var margin = {height: 75, width: 75},
+    pieWidth = document.getElementById("pieCol").clientWidth,
+    pieHeight = 500,
+    radius = Math.min(pieWidth, pieHeight) / 2,
+    border = 3,
+    fishes = data;
 
-      var pieSvg = d3.select("#pie")
-                       .append("svg")
-                       .attr("id", "pieChart")
-                       .attr("width", pieWidth)
-                       .attr("height", pieHeight)
-                       .append("g");
+    pieSvg = d3.select("#pie")
+               .append("svg")
+               .attr("id", "pieChart")
+               .attr("width", pieWidth)
+               .attr("height", pieHeight)
+               .append("g")
 
-      var color = d3.scaleOrdinal(["#98abc5", "#8a89a6"]);
+    color = d3.scaleOrdinal(["#98abc5", "#8a89a6"]);
 
-      var path = d3.arc()
-                   .outerRadius(radius - 10)
-                   .innerRadius(0);
+    path = d3.arc()
+             .outerRadius(radius - border)
+             .innerRadius(0);
 
-      var label = d3.arc()
-                    .outerRadius(radius - 40)
-                    .innerRadius(radius - 40);
+    label = d3.arc()
+              .outerRadius(radius - 40)
+              .innerRadius(radius - 40);
 
-      var pie = d3.pie()
-                  .sort(null)
-                  .value(function(d) {
-                    return d;
-                  });
+    pie = d3.pie()
+            .sort(null)
+            .value(function(d) {
+              return d;
+            });
 
-      var arc = pieSvg.selectAll(".arc")
-                      .data(pie(marineFresh[2]))
-                      .enter()
-                      .append("g")
-                      .attr("class", "arc");
+    arcBorder = d3.arc()
+                  .outerRadius(radius)
+                  .innerRadius(radius - border);
 
-      arc.append("path")
-         .attr("d", path)
-         .attr("fill", function(d) {
-            return color(d.data);
-         })
-         .attr("transform", "translate(250,250)");
+    var arc = pieSvg.selectAll(".arc")
+                    .data(pie(fishes[0]["Poland"]))
+                    .enter()
+                    .append("g")
+                    .attr("class", "arc")
+                    .attr("transform", "translate(" + 0.5 * pieWidth + "," + 0.5 * pieHeight + ")");
 
-      arc.append("text")
-          .each(function(d) {
-             var centroid = label.centroid(d);
-             d3.select(this)
-               .attr('x', 250 + centroid[0])
-               .attr('y', 250 + centroid[1])
-               .attr('dy', '0.35em')
-               .text((Math.round(d.data * 100)/100) + "%");
-           });
-    };
+    arc.append("path")
+       .attr("fill", function(d) {
+          return color(d.data);
+       })
+       .attr("d", path)
+
+    arc.append("path")
+       .attr("fill", "black")
+       .attr("d", arcBorder)
+
+    arc.append("text")
+       .each(function(d) {
+           var centroid = label.centroid(d);
+           d3.select(this)
+             .attr("x", centroid[0])
+             .attr("y", centroid[1])
+             .attr("dy", "0.35em")
+             .text((Math.round(d.data * 100)/100) + "%");
+         });
+  }
+
+  function swapPieData(d) {
+    // if (error) throw error;
+
+    document.getElementById("pieChartTitle").innerHTML = "Pie chart: " + d.properties.name;
+
+    var arc = pieSvg.selectAll(".arc")
+                    .remove()
+
+    if (typeof fishes[0][d.properties.name] === "undefined") {
+      arc.selectAll(".arc")
+            .data(pie([0,0]))
+            .enter()
+            .append("path")
+            .attr("fill", "black")
+            .attr("d", arcBorder)
+    }
+    else {
+        arc.selectAll(".arc")
+           .data(pie(fishes[0][d.properties.name]))
+           .append("path")
+           .attr("inner", path)
+           .attr("fill", function(d) {
+             return color(d.data);
+            })
+           .append("path")
+           .attr("fill", "black")
+           .attr("outer", arcBorder)
+           .append("text")
+            .each(function(d) {
+               var centroid = label.centroid(d);
+               d3.select(this)
+                 .attr('x', centroid[0])
+                 .attr('y', centroid[1])
+                 .attr('dy', '0.35em')
+                 .text((Math.round(d.fishes * 100)/100) + "%");
+             });
+    }
+  }
