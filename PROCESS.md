@@ -85,5 +85,20 @@ having window.onload in every scriptfile.).
 
 I think mvp is done.
 
+## Friday 22-6-18 / Day 13
+- Gave presenation, got some good feedback on how to solve the problem with the interaction between the worldmap and the piechart.
+- Fixed the bug on the interaction between the worldmap and the piechart.
+
+## Monday 25-6-18 / Day 14
+- Added 4th visualisation.
+- Transformed data for 4th vis.
+- Can plot harbours in vis.
+- Added dropdown menu for vis.
+
+Still to do:
+- Switch to other data year.
+- Link data to dropdown menu.
+- Fix bug that makes the svg larger instead of zooming in in the svg.
+
 
 
