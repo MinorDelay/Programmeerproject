@@ -5,16 +5,17 @@
 * Description: file containing the script that runs the pie chart
 */
 
-  var fishes, pieSvg, color, path, label, pie, arcBorder;
+  var pieWidth, pieHeight, pieSvg, color, path, label, pie, arcBorder, fishes;
 
   function createPie (error, data) {
     if (error) throw error;
 
+    pieWidth = document.getElementById("pieCol").clientWidth;
+    pieHeight = 500;
+
     var margin = {height: 75, width: 75},
-    pieWidth = document.getElementById("pieCol").clientWidth,
-    pieHeight = 500,
     radius = Math.min(pieWidth, pieHeight) / 2,
-    border = 3,
+    border = 3;
     fishes = data;
 
     pieSvg = d3.select("#pie")
@@ -58,18 +59,14 @@
        .attr("d", path)
 
     arc.append("path")
-       .attr("fill", "black")
        .attr("d", arcBorder)
+       .attr("fill", "black")
 
     arc.append("text")
-       .each(function(d) {
-           var centroid = label.centroid(d);
-           d3.select(this)
-             .attr("x", centroid[0])
-             .attr("y", centroid[1])
-             .attr("dy", "0.35em")
-             .text((Math.round(d.data * 100)/100) + "%");
-         });
+       .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+       .text((function(d){
+         return Math.round(d.data * 100)/100 + "%";
+       }));
   }
 
   function swapPieData(d) {
@@ -77,36 +74,46 @@
 
     document.getElementById("pieChartTitle").innerHTML = "Pie chart: " + d.properties.name;
 
-    var arc = pieSvg.selectAll(".arc")
+    pieSvg.selectAll(".arc")
                     .remove()
 
     if (typeof fishes[0][d.properties.name] === "undefined") {
-      arc.selectAll(".arc")
-            .data(pie([0,0]))
+      var arc = pieSvg.selectAll(".arc")
+            .data(pie([1,1]))
             .enter()
-            .append("path")
-            .attr("fill", "black")
+            .append("g")
+            .attr("class", "arc")
+            .attr("transform", "translate(" + 0.5 * pieWidth + "," + 0.5 * pieHeight + ")");
+
+            arc.append("path")
             .attr("d", arcBorder)
+            .attr("fill", "black");
+
+            arc.append("text")
+               .text("No data available.")
+
     }
     else {
-        arc.selectAll(".arc")
-           .data(pie(fishes[0][d.properties.name]))
-           .append("path")
-           .attr("inner", path)
-           .attr("fill", function(d) {
-             return color(d.data);
-            })
-           .append("path")
-           .attr("fill", "black")
-           .attr("outer", arcBorder)
-           .append("text")
-            .each(function(d) {
-               var centroid = label.centroid(d);
-               d3.select(this)
-                 .attr('x', centroid[0])
-                 .attr('y', centroid[1])
-                 .attr('dy', '0.35em')
-                 .text((Math.round(d.fishes * 100)/100) + "%");
-             });
+      var arc = pieSvg.selectAll(".arc")
+                      .data(pie(fishes[0][d.properties.name]))
+                      .enter()
+                      .append("g")
+                      .attr("class", "arc")
+                      .attr("transform", "translate(" + 0.5 * pieWidth + "," + 0.5 * pieHeight + ")");
+
+      arc.append("path")
+         .attr("d", path)
+         .attr("fill", function(d) {
+           return color(d.data);
+         });
+      arc.append("path")
+         .attr("fill", "black")
+         .attr("d", arcBorder)
+
+      arc.append("text")
+        .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+        .text((function(d){
+          return Math.round(d.data * 100)/100 + "%";
+        }));
     }
   }

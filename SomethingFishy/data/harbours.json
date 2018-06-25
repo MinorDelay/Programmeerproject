@@ -1,0 +1,742 @@
+[{
+	"2014": [{
+			"Year": 2014,
+			"Country": "Belgium",
+			"Harbour": "Oostende",
+			"Latitude": 51.233333,
+			"Longitude": 2.916667,
+			"Weight of waste": 2.0265
+		},
+		{
+			"Year": 2014,
+			"Country": "Belgium",
+			"Harbour": "Zeebrugge",
+			"Latitude": 51.333333,
+			"Longitude": 3.2,
+			"Weight of waste": 2.8225
+		},
+		{
+			"Year": 2014,
+			"Country": "Belgium",
+			"Harbour": "Nieuwpoort",
+			"Latitude": 51.133333,
+			"Longitude": 2.75,
+			"Weight of waste": 0.532
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Norddeich",
+			"Latitude": 53.628455,
+			"Longitude": 7.157936,
+			"Weight of waste": 1.16
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Greetsiel",
+			"Latitude": 53.6686,
+			"Longitude": 7.039318,
+			"Weight of waste": 0.88
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Ditzum",
+			"Latitude": 53.3178,
+			"Longitude": 7.282734,
+			"Weight of waste": 0.18
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Neuharlingersiel",
+			"Latitude": 53.7038,
+			"Longitude": 7.705278,
+			"Weight of waste": 0.16
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Dornumersiel",
+			"Latitude": 53.682018,
+			"Longitude": 7.487097,
+			"Weight of waste": 0.72
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Cuxhaven",
+			"Latitude": 53.870528,
+			"Longitude": 8.712598,
+			"Weight of waste": 0.38
+		},
+		{
+			"Year": 2014,
+			"Country": "Germany",
+			"Harbour": "Fedderwardersiel",
+			"Latitude": 53.598852,
+			"Longitude": 8.356733,
+			"Weight of waste": 0.08
+		},
+		{
+			"Year": 2014,
+			"Country": "Sweden",
+			"Harbour": "Traslovslage",
+			"Latitude": 57.116667,
+			"Longitude": 12.25,
+			"Weight of waste": 0.23
+		}
+	],
+	"2015": [{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Norddeich",
+			"Latitude": 53.6285,
+			"Longitude": 7.1579,
+			"Weight of waste": 0.66
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Greetsiel",
+			"Latitude": 53.6686,
+			"Longitude": 7.0393,
+			"Weight of waste": 0.52
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Ditzum",
+			"Latitude": 53.3178,
+			"Longitude": 7.2827,
+			"Weight of waste": 0.16
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Neuharlingersiel",
+			"Latitude": 53.7038,
+			"Longitude": 7.7053,
+			"Weight of waste": 0.36
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Dornumersiel",
+			"Latitude": 53.682,
+			"Longitude": 7.4871,
+			"Weight of waste": 0.12
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Cuxhaven",
+			"Latitude": 53.8705,
+			"Longitude": 8.7126,
+			"Weight of waste": 0.32
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Fedderwardersiel",
+			"Latitude": 53.5989,
+			"Longitude": 8.3567,
+			"Weight of waste": 0.28
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "B�sum",
+			"Latitude": 54.1194,
+			"Longitude": 8.8596,
+			"Weight of waste": 1.07
+		},
+		{
+			"Year": 2015,
+			"Country": "Germany",
+			"Harbour": "Eider Barrage",
+			"Latitude": 54.2662,
+			"Longitude": 8.8415,
+			"Weight of waste": 0.145
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Breskens",
+			"Latitude": 51.3945,
+			"Longitude": 3.5559,
+			"Weight of waste": 6.95
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Stellendam",
+			"Latitude": 51.823,
+			"Longitude": 4.0408,
+			"Weight of waste": 33.38
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Vlissingen",
+			"Latitude": 51.4425,
+			"Longitude": 3.5736,
+			"Weight of waste": ""
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Scheveningen",
+			"Latitude": 52.0951,
+			"Longitude": 4.2664,
+			"Weight of waste": ""
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "IJmuiden",
+			"Latitude": 52.4614,
+			"Longitude": 4.5838,
+			"Weight of waste": 24.78
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Den Helder",
+			"Latitude": 52.9534,
+			"Longitude": 4.7811,
+			"Weight of waste": 31.36
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Den Oever",
+			"Latitude": 52.9342,
+			"Longitude": 5.0294,
+			"Weight of waste": 21.92
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Harlingen",
+			"Latitude": 53.1736,
+			"Longitude": 5.4115,
+			"Weight of waste": 48.46
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Lauwersoog",
+			"Latitude": 53.4039,
+			"Longitude": 6.2189,
+			"Weight of waste": 12.34
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Eemshaven",
+			"Latitude": 53.4386,
+			"Longitude": 6.8355,
+			"Weight of waste": 19.64
+		},
+		{
+			"Year": 2015,
+			"Country": "Netherlands",
+			"Harbour": "Delfzijl",
+			"Latitude": 53.331,
+			"Longitude": 6.9245,
+			"Weight of waste": 3.21
+		},
+		{
+			"Year": 2015,
+			"Country": "Sweden",
+			"Harbour": "Grebbestad",
+			"Latitude": 58.6833,
+			"Longitude": 11.2667,
+			"Weight of waste": 251
+		},
+		{
+			"Year": 2015,
+			"Country": "Sweden",
+			"Harbour": "Traslovslage",
+			"Latitude": 57.1167,
+			"Longitude": 12.25,
+			"Weight of waste": 240
+		}
+	],
+	"2016": [{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Norddeich",
+			"Latitude": 53.628455,
+			"Longitude": 7.157936,
+			"Weight of waste": 1.38
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Greetsiel",
+			"Latitude": 53.6686,
+			"Longitude": 7.039318,
+			"Weight of waste": 1.06
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Ditzum",
+			"Latitude": 53.3178,
+			"Longitude": 7.282734,
+			"Weight of waste": 0.26
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Neuharlingersiel",
+			"Latitude": 53.7038,
+			"Longitude": 7.705278,
+			"Weight of waste": 0.21
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Dornumersiel",
+			"Latitude": 53.682018,
+			"Longitude": 7.487097,
+			"Weight of waste": 0.21
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Cuxhaven",
+			"Latitude": 53.870528,
+			"Longitude": 8.712598,
+			"Weight of waste": 0.22
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Fedderwardersiel",
+			"Latitude": 53.598852,
+			"Longitude": 8.356733,
+			"Weight of waste": 0.47
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Busum",
+			"Latitude": 54.1194,
+			"Longitude": 8.8596,
+			"Weight of waste": 1.6
+		},
+		{
+			"Year": 2016,
+			"Country": "Germany",
+			"Harbour": "Eider Barrage",
+			"Latitude": 54.2662,
+			"Longitude": 8.8415,
+			"Weight of waste": 0.62
+		},
+		{
+			"Year": 2016,
+			"Country": "Ireland",
+			"Harbour": "Clogherhead",
+			"Latitude": 58.801389,
+			"Longitude": -6.218056,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Ireland",
+			"Harbour": "Union Hall",
+			"Latitude": 51.55,
+			"Longitude": -9.133333,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Ireland",
+			"Harbour": "Castletownbere",
+			"Latitude": 51.635556,
+			"Longitude": -9.9125,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Ireland",
+			"Harbour": "Rossaveel",
+			"Latitude": 53.266667,
+			"Longitude": -9.551389,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Ireland",
+			"Harbour": "Dun Laoghaire",
+			"Latitude": 53.298576,
+			"Longitude": -6.142335,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Ireland",
+			"Harbour": "Killybegs",
+			"Latitude": 54.633333,
+			"Longitude": -8.433333,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Spain",
+			"Harbour": "Puerto de Marin",
+			"Latitude": 42.04,
+			"Longitude": -8.7,
+			"Weight of waste": 9.5
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Den Oever",
+			"Latitude": 52.93416667,
+			"Longitude": 5.029444444,
+			"Weight of waste": 0.0343
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Harlingen",
+			"Latitude": 53.173638,
+			"Longitude": 5.411477,
+			"Weight of waste": 0.0253
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Lauwersoog",
+			"Latitude": 53.40388889,
+			"Longitude": 6.218888889,
+			"Weight of waste": 0.031
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Eemshaven",
+			"Latitude": 53,
+			"Longitude": 7,
+			"Weight of waste": 0.0303
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Delfzijl",
+			"Latitude": 53,
+			"Longitude": 7,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Den Helder",
+			"Latitude": 52.95340155,
+			"Longitude": 4.781100035,
+			"Weight of waste": 0.0663
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "IJmuiden",
+			"Latitude": 52.46141625,
+			"Longitude": 4.583818435,
+			"Weight of waste": 0.015
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Scheveningen",
+			"Latitude": 52.1,
+			"Longitude": 4,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Stellendam",
+			"Latitude": 51.82304385,
+			"Longitude": 4.04082012,
+			"Weight of waste": 0.0237
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Breskens",
+			"Latitude": 51,
+			"Longitude": 4,
+			"Weight of waste": 0.0108
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Vlissingen",
+			"Latitude": 51.4425,
+			"Longitude": 3.573611111,
+			"Weight of waste": 0.0026
+		},
+		{
+			"Year": 2016,
+			"Country": "Netherlands",
+			"Harbour": "Ameland",
+			"Latitude": 53.4212977,
+			"Longitude": 5.775203705,
+			"Weight of waste": 0.0061
+		},
+		{
+			"Year": 2016,
+			"Country": "Norway",
+			"Harbour": "Tromso",
+			"Latitude": 69.6489,
+			"Longitude": 18.95508,
+			"Weight of waste": 22.73
+		},
+		{
+			"Year": 2016,
+			"Country": "Norway",
+			"Harbour": "Alesund",
+			"Latitude": 62.47225,
+			"Longitude": 6.15492,
+			"Weight of waste": 22.967
+		},
+		{
+			"Year": 2016,
+			"Country": "Norway",
+			"Harbour": "Egersund",
+			"Latitude": 58.45133,
+			"Longitude": 5.9997,
+			"Weight of waste": 2.486
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Shetland",
+			"Latitude": 60.15,
+			"Longitude": -1.133333333,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Peterhead",
+			"Latitude": 57.5,
+			"Longitude": -1.766666667,
+			"Weight of waste": 41.17
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Fraserburgh",
+			"Latitude": 57.68333333,
+			"Longitude": -1.983333333,
+			"Weight of waste": 11.76
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Eyemouth",
+			"Latitude": 55.86666667,
+			"Longitude": -2.066666667,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Tarbert",
+			"Latitude": 55.86666667,
+			"Longitude": -5.4,
+			"Weight of waste": 5.88
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Kinlochbervie",
+			"Latitude": 58.45,
+			"Longitude": -5.066666667,
+			"Weight of waste": 6.78
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Scrabster",
+			"Latitude": 58.6,
+			"Longitude": -3.533333333,
+			"Weight of waste": 47.32
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Kirkcudbright",
+			"Latitude": 54.83333333,
+			"Longitude": -4.033333333,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Ullapool",
+			"Latitude": 57.9,
+			"Longitude": -5.133333333,
+			"Weight of waste": 18.4
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Rothesay",
+			"Latitude": 55.83333333,
+			"Longitude": -5.033333333,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Campbeltown",
+			"Latitude": 55.41666667,
+			"Longitude": -5.566666667,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Isle of Whithorn",
+			"Latitude": 54.71666667,
+			"Longitude": -4.366666667,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Newlyn",
+			"Latitude": 50.104439,
+			"Longitude": -5.548484,
+			"Weight of waste": 14.3
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "St Ives",
+			"Latitude": 50.214752,
+			"Longitude": -5.479325,
+			"Weight of waste": 2
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Hayle",
+			"Latitude": 50.190389,
+			"Longitude": -5.428977,
+			"Weight of waste": 2
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Newquay",
+			"Latitude": 50.417222,
+			"Longitude": -5.087837,
+			"Weight of waste": 2
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Padstow",
+			"Latitude": 50.541066,
+			"Longitude": -4.936865,
+			"Weight of waste": 1.5
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Clovelly",
+			"Latitude": 50.998883,
+			"Longitude": -4.39783,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Ilfracombe",
+			"Latitude": 51.210571,
+			"Longitude": -4.113216,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Mevagissey",
+			"Latitude": 50.269548,
+			"Longitude": -4.785329,
+			"Weight of waste": 3
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Looe",
+			"Latitude": 50.354077,
+			"Longitude": -4.454798,
+			"Weight of waste": 0.4
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Plymouth",
+			"Latitude": 50.363717,
+			"Longitude": -4.150974,
+			"Weight of waste": 11.129
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Salcombe",
+			"Latitude": 50.234497,
+			"Longitude": -3.768969,
+			"Weight of waste": 0.25
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Brixham",
+			"Latitude": 50.398212,
+			"Longitude": -3.512375,
+			"Weight of waste": 5.3
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Holdeness",
+			"Latitude": 54.081191,
+			"Longitude": -0.189011,
+			"Weight of waste": 0.1
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Ardglass",
+			"Latitude": 54.261942,
+			"Longitude": -5.607712,
+			"Weight of waste": 4
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Kilkeel",
+			"Latitude": 54.058653,
+			"Longitude": -5.98854,
+			"Weight of waste": 4
+		},
+		{
+			"Year": 2016,
+			"Country": "United Kingdom",
+			"Harbour": "Portavogie",
+			"Latitude": 54.457197,
+			"Longitude": -5.435677,
+			"Weight of waste": 4
+		}
+	]
+}
+]

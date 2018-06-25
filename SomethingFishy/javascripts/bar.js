@@ -100,7 +100,7 @@ function loadBar(error, threatenedFish) {
     // change data in bar chart, changes when clicked on country
     function swapBarData(d) {
       document.getElementById("barChartTitle").innerHTML = "Bar chart: " + d.properties.name
-      
+
       barSvg.selectAll(".bars")
             .remove()
 

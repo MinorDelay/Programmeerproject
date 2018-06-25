@@ -1,20 +1,51 @@
+
 // queue for loading data
-  function createHarbour(error, map) {
+  function createHarbour(error, map, harbours) {
 
     if (error) throw error;
 
+    var beginYear = 2014;
+    console.log(beginYear)
+
+    selectedData = harbours[0][beginYear];
+
+    console.log(harbours)
+
     var mapHeight = 500,
     mapWidth = (document.getElementById("harbour").clientWidth),
-    rotated = 0;
+    rotated = 0
+    coords2014 = [],
+    waste2014 = [],
+    harbour2014 = [],
+    coords2015 = [],
+    waste2015 = [],
+    harbour2015 = [],
+    coords2016 = [],
+    waste2016 = []
+    harbour2016 = [];
+
+     selectedData.forEach(function(d){
+       coords2014.push([+d["Longitude"],+d["Latitude"]])
+       waste2014.push(d["Weight of waste"]);
+       harbour2014.push(d["Harbour"])
+     });
+     // harbours["harbourData"][0]["2015"].forEach(function(d){
+     //   coords2015.push([+d["Longitude"],+d["Latitude"]])
+     //   waste2015.push(d["Weight of waste"]);
+     // });
+     // harbours["harbourData"][0]["2016"].forEach(function(d){
+     //   coords2016.push([+d["Longitude"],+d["Latitude"]])
+     //   waste2016.push(d["Weight of waste"]);
+     // });
 
     var countries = topojson.feature(map, map.objects.countries1).features;
 
-    var mapSvg = d3.select("#harbourMap")
+    var harbourSvg = d3.select("#harbourMap")
                 .append("svg")
                 .attr("id", "harbours")
                 .attr("width", mapWidth)
-                .attr("height", mapHeight)
-                .append("g");
+                .attr("height", mapHeight);
+                // .append("g");
 
 
     var projection = d3.geoMercator()
@@ -25,58 +56,40 @@
     var path = d3.geoPath()
                  .projection(projection);
 
-    // // create tooltip that returns a label for selected country
-    // var mapTip = d3.tip()
-    //               .attr("class", "map-tip")
-    //               .offset([0, 0])
-    //               .html(function(d) {
-    //                 var location = function (d){ if (myCountries.includes(d.properties.name)){
-    //                                var a = myCountries.indexOf(d.properties.name)
-    //                                return myCountries[a];
-    //                              }
-    //                              else {
-    //                                return d.properties.name;
-    //                            }}
-    //                 var production = function (d){ if (myCountries.includes(d.properties.name)){
-    //                                     var a = myCountries.indexOf(d.properties.name)
-    //                                     return maxProd[a] + " tonnes.";
-    //                                   }
-    //                                   else {
-    //                                     return "unknown.";
-    //                                   }}
-    //                                   return "The plastic production in " + location(d) + " is " + production(d);
-    //                                 });
-    //
-    // // call tip function
-    // mapSvg.call(mapTip);
-
-    mapSvg.selectAll(".countries")
+    harbourSvg.append("g")
+          .selectAll(".countries")
           .data(countries)
           .enter()
           .append("path")
           .attr("class", "countries")
           .attr("d", path)
-          // .style("fill", function(d) {
-          //  if (myCountries.includes(d.properties.name)){
-          //    var a = myCountries.indexOf(d.properties.name)
-          //    return "rgba(100," + ((maxProd[a] / maxPlastic) * 255)+ ", 200, 0.6)";
-          //  }
-          //  else {
-          //    return "grey";
-          //  }
-          // })
           // .on("mouseover", mapTip.show)
           // .on("mouseout", mapTip.hide)
-          // .on("click", function (d){
-          //   swapBarData(d)
-          //   swapPieData(d);
-          // });
 
-    moveMap(mapSvg, path, mapWidth, mapHeight, rotated, projection)
+    harbourSvg.selectAll("circle")
+           .data(coords2014)
+           .enter()
+           .append("circle")
+           .attr("class", "harbourloca")
+           .attr("transform", function(d){
+             return "translate(" + projection([
+               d[0],d[1]]) + ")";
+           })
+           .attr("r", "4px")
+           .attr("fill", "red");
+
+    moveMap(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSvg)
+    // updateHarbour()
   };
 
+  // function updateHarbour(){
+  //
+  // }
+
   // function to make the world map
-  function moveMap(mapSvg, path, mapWidth, mapHeight, rotated, projection) {
+  function moveMap(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSvg) {
+
+
 
     var initX,
     mouse,
@@ -88,7 +101,7 @@
                  .on("zoom", zoomed)
                  .on("end", zoomended);
 
-    mapSvg.on("wheel", function() {
+    harbourSvg.on("wheel", function() {
             //zoomend needs mouse coords
             initX = d3.mouse(this)[0];
           })
@@ -103,7 +116,7 @@
     function rotateMap(endX) {
       projection.rotate([(rotated + (endX - initX) * 360) / (s * mapWidth),0,0]);
 
-      mapSvg.selectAll("path")
+      harbourSvg.selectAll("path")
          .attr("d", path);
     };
 
@@ -134,10 +147,20 @@
         Math.max(mapHeight  * (1 - s) - h * s, t[1])
       );
 
-      mapSvg.attr("transform", "translate(" + t + ")scale(" + s + ")");
+
+      harbourSvg.attr("transform", "translate(" + t + ")scale(" + s + ")");
+      harbourSvg.selectAll(".harbourloca").attr("transform", function(d){
+        return "translate(" + projection([d[0],d[1]]) + ")";
+      });
+
+
 
       //adjust the stroke width based on zoom level
       d3.selectAll(".countries").style("stroke-width", 1 / s);
+      console.log('hoi')
+      d3.selectAll(".harbourloca").attr("r", 4/s);
+
+      // d3.selectAll(".harbourloca").attr("r", s + "px")
 
       mouse = d3.mouse(this);
 
@@ -147,6 +170,7 @@
       }
     }
   }
+
 
   // // legend function
   // function Legend() {

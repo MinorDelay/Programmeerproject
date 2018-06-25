@@ -16,10 +16,11 @@ Description: File containing the main html so the project can be run -->
         <script src="https://d3js.org/topojson.v1.min.js"></script>
         <script src="javascripts/d3-tip.js"></script>
         <script src="javascripts/main.js"></script>
-        <script src="javascripts/bar.js"></script>
+        <!-- <script src="javascripts/bar.js"></script>
         <script src="javascripts/maps.js"></script>
-        <script src="javascripts/pie.js"></script>
+        <script src="javascripts/pie.js"></script> -->
         <script src="javascripts/harbours.js"></script>
+        <script src="javascripts/dropDown.js"></script>
 
       </head>
 
@@ -48,11 +49,11 @@ Description: File containing the main html so the project can be run -->
       </nav>
 
       <div class="jumbotron text-center" id="top">
-        <h1>Plastic production, threatened fish species and plastic colletion from the oceans</h1>
+        <h2>Plastic production, threatened fish species and plastic collection from the oceans</h2>
           <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
-          <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
+          <!-- <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
             and <a href=" https://data.oecd.org/earnwage/average-wages.htm#indicator-chart">Average wage</a></h1>
-          </p>
+          </p> -->
       </div>
 
 
@@ -127,15 +128,17 @@ Description: File containing the main html so the project can be run -->
               <div id = "harbourMap"></div>
             </div>
           </div>
-          <div class="col-sm-12" id="sliderMap">
-            <div id = "sliderCol">
-              <h4 id="sliderTitle">Slider</h4>
-              <div id = "slider"></div>
+            <div class="dropdown">
+              <button onclick="dropDown()" class="dropbtn">Dropdown</button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#">2014</a>
+                <a href="#">2015</a>
+                <a href="#">2016</a>
+              </div>
             </div>
           </div>
         </div>
 
-      </div>
 
   </body>
 </html>
