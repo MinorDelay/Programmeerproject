@@ -7,7 +7,15 @@
     var mapHeight = 500,
     mapWidth = (document.getElementById("worldmap").clientWidth),
     rotated = 0,
+    mapScale = 10,
+    xMap = 2,
+    yMap = 1.5,
+    red = 100,
+    green = 255,
+    blue = 200,
+    alpha = 0.6,
     plasticPerCountry = [],
+
     maxProd = [],
     myCountries = [];
 
@@ -31,8 +39,8 @@
 
 
     var projection = d3.geoMercator()
-                       .scale(mapWidth/10)
-                       .translate([mapWidth/2,mapHeight/1.5])
+                       .scale(mapWidth/mapScale)
+                       .translate([mapWidth/xMap,mapHeight/yMap])
                        .rotate([rotated,0,0]);
 
     var path = d3.geoPath()
@@ -72,7 +80,7 @@
           .style("fill", function(d) {
            if (myCountries.includes(d.properties.name)){
              var a = myCountries.indexOf(d.properties.name)
-             return "rgba(100," + ((maxProd[a] / maxPlastic) * 255)+ ", 200, 0.6)";
+             return "rgba(" + red + "," + ((maxProd[a] / maxPlastic) * green)+ "," + blue + "," + alpha + ")";
            }
            else {
              return "grey";
@@ -93,11 +101,14 @@
 
     var initX,
     mouse,
+    minZoom = 1,
+    maxZoom = 5,
+    degrees = 360,
     mouseClicked = false,
     s = 1;
 
     var zoom = d3.zoom()
-                 .scaleExtent([1, 5])
+                 .scaleExtent([minZoom, maxZoom])
                  .on("zoom", zoomed)
                  .on("end", zoomended);
 
@@ -114,7 +125,7 @@
           .call(zoom);
 
     function rotateMap(endX) {
-      projection.rotate([(rotated + (endX - initX) * 360) / (s * mapWidth),0,0]);
+      projection.rotate([(rotated + (endX - initX) * degrees) / (s * mapWidth),0,0]);
 
       mapSvg.selectAll("path")
          .attr("d", path);
@@ -126,7 +137,7 @@
         return;
       }
       else {
-        rotated = rotated + ((mouse[0] - initX) * 360 / (s * mapWidth));
+        rotated = rotated + ((mouse[0] - initX) * degrees / (s * mapWidth));
         mouseClicked = false;
       }
     };

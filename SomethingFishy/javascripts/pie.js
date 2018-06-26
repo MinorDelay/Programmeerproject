@@ -5,17 +5,20 @@
 * Description: file containing the script that runs the pie chart
 */
 
-  var pieWidth, pieHeight, pieSvg, color, path, label, pie, arcBorder, fishes;
+  var pieWidth, pieHeight, xArc, yArc, pieSvg, color, path, label, pie, arcBorder, fishes;
 
   function createPie (error, data) {
     if (error) throw error;
 
     pieWidth = document.getElementById("pieCol").clientWidth;
-    pieHeight = 500;
+    pieHeight = 500,
+    xArc = 0.5,
+    yArc = 0.5;
 
     var margin = {height: 75, width: 75},
     radius = Math.min(pieWidth, pieHeight) / 2,
-    border = 3;
+    border = 3,
+    arc = 40;
     fishes = data;
 
     pieSvg = d3.select("#pie")
@@ -32,8 +35,8 @@
              .innerRadius(0);
 
     label = d3.arc()
-              .outerRadius(radius - 40)
-              .innerRadius(radius - 40);
+              .outerRadius(radius - arc)
+              .innerRadius(radius - arc);
 
     pie = d3.pie()
             .sort(null)
@@ -50,7 +53,7 @@
                     .enter()
                     .append("g")
                     .attr("class", "arc")
-                    .attr("transform", "translate(" + 0.5 * pieWidth + "," + 0.5 * pieHeight + ")");
+                    .attr("transform", "translate(" + xArc * pieWidth + "," + yArc * pieHeight + ")");
 
     arc.append("path")
        .attr("fill", function(d) {
@@ -83,7 +86,7 @@
             .enter()
             .append("g")
             .attr("class", "arc")
-            .attr("transform", "translate(" + 0.5 * pieWidth + "," + 0.5 * pieHeight + ")");
+            .attr("transform", "translate(" + xArc * pieWidth + "," + yArc * pieHeight + ")");
 
             arc.append("path")
             .attr("d", arcBorder)
@@ -99,7 +102,7 @@
                       .enter()
                       .append("g")
                       .attr("class", "arc")
-                      .attr("transform", "translate(" + 0.5 * pieWidth + "," + 0.5 * pieHeight + ")");
+                      .attr("transform", "translate(" + xArc * pieWidth + "," + yArc * pieHeight + ")");
 
       arc.append("path")
          .attr("d", path)

@@ -147,7 +147,7 @@
 		{
 			"Year": 2015,
 			"Country": "Germany",
-			"Harbour": "B�sum",
+			"Harbour": "Busum",
 			"Latitude": 54.1194,
 			"Longitude": 8.8596,
 			"Weight of waste": 1.07
@@ -175,22 +175,6 @@
 			"Latitude": 51.823,
 			"Longitude": 4.0408,
 			"Weight of waste": 33.38
-		},
-		{
-			"Year": 2015,
-			"Country": "Netherlands",
-			"Harbour": "Vlissingen",
-			"Latitude": 51.4425,
-			"Longitude": 3.5736,
-			"Weight of waste": ""
-		},
-		{
-			"Year": 2015,
-			"Country": "Netherlands",
-			"Harbour": "Scheveningen",
-			"Latitude": 52.0951,
-			"Longitude": 4.2664,
-			"Weight of waste": ""
 		},
 		{
 			"Year": 2015,

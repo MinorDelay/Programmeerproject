@@ -10,8 +10,12 @@
 function loadBar(error, threatenedFish) {
     if (error) throw error;
 
-    margin = {height: 75, width: 75};
-    barWidth = document.getElementById("barCol").clientWidth - 30;
+    var margin = {height: 75, width: 75},
+    svgPadding = 30
+    xTipOffset = -20
+    yTipOffset = 0;
+
+    barWidth = document.getElementById("barCol").clientWidth - svgPadding;
     barHeight = 500;
     barPadding = 5;
     country = Object.keys(threatenedFish[0]),
@@ -30,7 +34,7 @@ function loadBar(error, threatenedFish) {
    barTip = d3.tip()
                .attr("class", "bar-tip")
                .attr("opacity", 0.5)
-               .offset([-20, 0])
+               .offset([xTipOffset, yTipOffset])
                .html(function(d) {
                  return (d) + " threatened fish species";
                });

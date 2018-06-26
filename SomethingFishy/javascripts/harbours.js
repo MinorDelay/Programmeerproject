@@ -1,63 +1,56 @@
+  var startYear = 2014, currentYear;
+
+  function getHarbourData(error, map, harbours) {
+
+    currentYear = startYear;
+    createHarbour(error, map, harbours, currentYear);
+  }
+
 
 // queue for loading data
-  function createHarbour(error, map, harbours) {
+  function createHarbour(error, map, harbours, currentYear) {
 
     if (error) throw error;
 
-    var beginYear = 2014;
-    console.log(beginYear)
-
-    selectedData = harbours[0][beginYear];
-
-    console.log(harbours)
+    selectedData = harbours[0][currentYear];
 
     var mapHeight = 500,
     mapWidth = (document.getElementById("harbour").clientWidth),
-    rotated = 0
-    coords2014 = [],
-    waste2014 = [],
-    harbour2014 = [],
-    coords2015 = [],
-    waste2015 = [],
-    harbour2015 = [],
-    coords2016 = [],
-    waste2016 = []
-    harbour2016 = [];
+    rotated = 0,
+    mapScale = 2,
+    xMap = 2,
+    yMap = 0.6,
+    // coordsYear = [],
+    wasteYear = [],
+    harbourYear = [];
+
 
      selectedData.forEach(function(d){
-       coords2014.push([+d["Longitude"],+d["Latitude"]])
-       waste2014.push(d["Weight of waste"]);
-       harbour2014.push(d["Harbour"])
+       // coordsYear.push([+d["Longitude"],+d["Latitude"]])
+       wasteYear.push(d["Weight of waste"]);
+       harbourYear.push(d["Harbour"])
      });
-     // harbours["harbourData"][0]["2015"].forEach(function(d){
-     //   coords2015.push([+d["Longitude"],+d["Latitude"]])
-     //   waste2015.push(d["Weight of waste"]);
-     // });
-     // harbours["harbourData"][0]["2016"].forEach(function(d){
-     //   coords2016.push([+d["Longitude"],+d["Latitude"]])
-     //   waste2016.push(d["Weight of waste"]);
-     // });
 
-    var countries = topojson.feature(map, map.objects.countries1).features;
+    var countries = topojson.feature(map, map.objects.countries1).features,
+    harbourSize = d3.max(wasteYear);
 
     var harbourSvg = d3.select("#harbourMap")
                 .append("svg")
                 .attr("id", "harbours")
                 .attr("width", mapWidth)
-                .attr("height", mapHeight);
-                // .append("g");
+                .attr("height", mapHeight)
+                .append("g");
 
 
     var projection = d3.geoMercator()
-                       .scale(mapWidth/3)
-                       .translate([mapWidth/2,mapHeight/0.7])
+                       .scale(mapWidth/mapScale)
+                       .translate([mapWidth/xMap,mapHeight/yMap])
                        .rotate([rotated,0,0]);
 
     var path = d3.geoPath()
                  .projection(projection);
 
-    harbourSvg.append("g")
-          .selectAll(".countries")
+    harbourSvg.selectAll(".countries")
           .data(countries)
           .enter()
           .append("path")
@@ -67,37 +60,47 @@
           // .on("mouseout", mapTip.hide)
 
     harbourSvg.selectAll("circle")
-           .data(coords2014)
+           .data(selectedData)
            .enter()
            .append("circle")
            .attr("class", "harbourloca")
            .attr("transform", function(d){
              return "translate(" + projection([
-               d[0],d[1]]) + ")";
+               d["Longitude"],d["Latitude"]]) + ")";
            })
-           .attr("r", "4px")
+           .attr("r", function(d){
+             return console.log(Math.LN10((harbourSize/d["Weight of waste"]))) + "px";
+           })
            .attr("fill", "red");
 
-    moveMap(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSvg)
-    // updateHarbour()
+    moveHarbour(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSize);
+    changeYear(error, map, harbours, currentYear);
   };
 
-  // function updateHarbour(){
-  //
-  // }
+  function changeYear(error, map, harbours, currentYear){
+
+    d3.select("select")
+      .on("change",function(d){
+        var selectedYear = d3.select("#myDropdown").node().value;
+        currentYear = selectedYear;
+        d3.select("#harbours").remove();
+        createHarbour(error, map, harbours, currentYear);
+      })
+  }
 
   // function to make the world map
-  function moveMap(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSvg) {
-
-
+  function moveHarbour(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSize) {
 
     var initX,
     mouse,
+    minZoom = 1,
+    maxZoom = 10,
     mouseClicked = false,
+    degrees = 360;
     s = 1;
 
     var zoom = d3.zoom()
-                 .scaleExtent([1, 5])
+                 .scaleExtent([minZoom, maxZoom])
                  .on("zoom", zoomed)
                  .on("end", zoomended);
 
@@ -114,7 +117,7 @@
           .call(zoom);
 
     function rotateMap(endX) {
-      projection.rotate([(rotated + (endX - initX) * 360) / (s * mapWidth),0,0]);
+      projection.rotate([(rotated + (endX - initX) * degrees) / (s * mapWidth),0,0]);
 
       harbourSvg.selectAll("path")
          .attr("d", path);
@@ -126,7 +129,7 @@
         return;
       }
       else {
-        rotated = rotated + ((mouse[0] - initX) * 360 / (s * mapWidth));
+        rotated = rotated + ((mouse[0] - initX) * degrees / (s * mapWidth));
         mouseClicked = false;
       }
     };
@@ -150,17 +153,16 @@
 
       harbourSvg.attr("transform", "translate(" + t + ")scale(" + s + ")");
       harbourSvg.selectAll(".harbourloca").attr("transform", function(d){
-        return "translate(" + projection([d[0],d[1]]) + ")";
+        return "translate(" + projection([d["Longitude"],d["Latitude"]]) + ")";
       });
-
 
 
       //adjust the stroke width based on zoom level
       d3.selectAll(".countries").style("stroke-width", 1 / s);
-      console.log('hoi')
-      d3.selectAll(".harbourloca").attr("r", 4/s);
+      d3.selectAll(".harbourloca").attr("r", function(d){
+         return Math.log((harbourSize/d["Weight of waste"])/s) + "px";
+       });
 
-      // d3.selectAll(".harbourloca").attr("r", s + "px")
 
       mouse = d3.mouse(this);
 
