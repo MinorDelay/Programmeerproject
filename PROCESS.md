@@ -100,5 +100,24 @@ Still to do:
 - Link data to dropdown menu.
 - Fix bug that makes the svg larger instead of zooming in in the svg.
 
+## Tuesday 26-6-18 / Day 15
+- Can switch to other data years, thus dropdown menu is linked.
+- Fixed bug.
+- Restructured site into current format.
+
+Still to do:
+- Add legends.
+- Fix bug with rescaling of harboursizes.
+
+## Wednesday 27-6-18 / Day 16
+- Added all legends.
+- Fixed scaling of harboursizes.
+- Added 2nd interactive HTML-element. (radio form)
+
+Still to do:
+- Edit legend so colorscaling is nice and correct color.
+- Let 2nd HTML-element switch to coloring where data is from fishes.
+- Add story.
+
 
 
