@@ -10,6 +10,8 @@
 function loadBar(error, threatenedFish) {
     if (error) throw error;
 
+    document.getElementById("barChartTitle").innerHTML = "Bar chart: Poland";
+
     var margin = {height: 75, width: 75},
     svgPadding = 30
     xTipOffset = -20

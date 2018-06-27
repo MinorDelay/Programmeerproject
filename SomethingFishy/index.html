@@ -95,36 +95,66 @@ Description: File containing the main html so the project can be run -->
       <div class="container" id="visualisations">
         <h2 class="title">Visualisations</h2>
         <div class="row" id="worldZoom">
-          <div class="col-sm-12" id="worldmap">
+          <div class="col-sm-9" id="worldmap">
             <div id = "mapCol">
               <h2 id="worldMapTitle">Worldmap</h2>
               <div id = "map"></div>
             </div>
           </div>
+          <div class="col-sm-3" id="switchMapData">
+            <div id = "switchCol">
+              <h2 id="switchTitle">Switch data</h2>
+              <div id = "switch">
+                <form>
+                  <input type="radio" name="data" value="plastic" checked>Countries with known plastic production.<br>
+                  <input type="radio" name="data" value="fish">Countries with endangered fishspecies.
+                </form>
+              </div>
+
+            </div>
+          </div>
         </div>
 
-        <div class="row align-items-center">
+        <div class="row" id="legendWorldMap">
           <div class="col-sm-12" id="legendMap">
             <div id = "legendCol">
               <h4 id="legendTitle">Legend</h4>
-              <div id = "legend"></div>
+              <div id = "mapLegend"></div>
             </div>
           </div>
         </div>
 
         <div class="row" id="pieBar">
-          <div class="col-sm-6" id="barCol">
-            <h2 id="barChartTitle">Bar chart: Poland</h2>
+          <div class="col-sm-5" id="barCol">
+            <h2 id="barChartTitle"></h2>
             <div id = "bar"></div>
           </div>
-          <div class="col-sm-6" id="pieCol">
-            <h2 id="pieChartTitle">Pie chart: Poland</h2>
+          <div class="col-sm-5" id="pieCol">
+            <h2 id="pieChartTitle"></h2>
             <div id = "pie"></div>
           </div>
+          <div class="col-sm-2" id="pieLegend"></div>
         </div>
 
         <div class="row" id="worldHarbour">
-          <div class="col-sm-3" id="dropButton">
+          <div class="col-sm-4" id="explainHarbour">
+            <div id = "harbourText">
+              <h2 id="harbourSolution">Fishing for waste</h2>
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+              mollit anim id est laborum."
+            </div>
+          </div>
+          <div class="col-sm-6" id="harbour">
+            <div id = "harbourCol">
+              <h2 id="harbourTitle"></h2>
+              <div id = "harbourMap"></div>
+            </div>
+          </div>
+          <div class="col-sm-2" id="dropButton">
             <div class="dropdown">
               <button onclick="dropDown()" class="dropbtn">Change year</button>
               <select id="myDropdown" class="dropdown-content">
@@ -134,15 +164,9 @@ Description: File containing the main html so the project can be run -->
               </select>
             </div>
           </div>
-          <div class="col-sm-9" id="harbour">
-            <div id = "harbourCol">
-              <h2 id="worldMapTitle">Harbours cleaning their oceans</h2>
-              <div id = "harbourMap"></div>
-            </div>
-          </div>
+          <div class="col-sm-2" id="harbourLegend"></div>
         </div>
       </div>
-
 
   </body>
 </html>

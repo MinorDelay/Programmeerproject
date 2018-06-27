@@ -1,4 +1,4 @@
-  var startYear = 2014, currentYear;
+  var startYear = 2014, currentYear, s;
 
   function getHarbourData(error, map, harbours) {
 
@@ -12,35 +12,38 @@
 
     if (error) throw error;
 
-    selectedData = harbours[0][currentYear];
+    document.getElementById("harbourTitle").innerHTML = "Harbours cleaning their oceans (" + currentYear + ")";
 
-    var mapHeight = 500,
-    mapWidth = (document.getElementById("harbour").clientWidth),
+    selectedData = harbours[0][currentYear];
+    s = 1;
+
+    var mapHeight = 400,
+    mapPadding = 30,
+    mapWidth = (document.getElementById("harbour").clientWidth) - mapPadding,
     rotated = 0,
-    mapScale = 2,
-    xMap = 2,
+    mapScale = 1.5,
+    xMap = 1.6,
     yMap = 0.6,
-    // coordsYear = [],
     wasteYear = [],
     harbourYear = [];
 
-
      selectedData.forEach(function(d){
-       // coordsYear.push([+d["Longitude"],+d["Latitude"]])
        wasteYear.push(d["Weight of waste"]);
        harbourYear.push(d["Harbour"])
      });
 
     var countries = topojson.feature(map, map.objects.countries1).features,
-    harbourSize = d3.max(wasteYear);
+    harbourMax = d3.max(wasteYear),
+    harbourSizeList = [{"size":8, "production": (2/3 * harbourMax), "icon": "> "},
+                       {"size":5, "production": (1/3 * harbourMax), "icon": "> "},
+                       {"size":2, "production": (1/3 * harbourMax), "icon": "< "}];
 
     var harbourSvg = d3.select("#harbourMap")
-                .append("svg")
-                .attr("id", "harbours")
-                .attr("width", mapWidth)
-                .attr("height", mapHeight)
-                .append("g");
-
+                       .append("svg")
+                       .attr("id", "harbours")
+                       .attr("width", mapWidth)
+                       .attr("height", mapHeight)
+                       .append("g");
 
     var projection = d3.geoMercator()
                        .scale(mapWidth/mapScale)
@@ -50,14 +53,24 @@
     var path = d3.geoPath()
                  .projection(projection);
 
+    var harbourSize = function(d) {
+     if (d["Weight of waste"] >= (2/3 * harbourMax)) {
+       return harbourSizeList[0]["size"]/s + "px";
+     }
+     else if (d["Weight of waste"] >= (1/3 * harbourMax)) {
+       return harbourSizeList[1]["size"]/s + "px";
+     }
+     else {
+       return harbourSizeList[2]["size"]/s + "px";
+     }
+    };
+
     harbourSvg.selectAll(".countries")
           .data(countries)
           .enter()
           .append("path")
           .attr("class", "countries")
           .attr("d", path)
-          // .on("mouseover", mapTip.show)
-          // .on("mouseout", mapTip.hide)
 
     harbourSvg.selectAll("circle")
            .data(selectedData)
@@ -68,14 +81,69 @@
              return "translate(" + projection([
                d["Longitude"],d["Latitude"]]) + ")";
            })
-           .attr("r", function(d){
-             return console.log(Math.LN10((harbourSize/d["Weight of waste"]))) + "px";
-           })
+           .attr("r", harbourSize)
            .attr("fill", "red");
 
-    moveHarbour(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSize);
+    moveHarbour(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourMax, harbourSize);
+    harbourLegend(harbourSizeList);
     changeYear(error, map, harbours, currentYear);
+
   };
+
+  function harbourLegend(harbourSizeList) {
+
+  var legendHeight = 100,
+  legendPadding = 30,
+  legendWidth = document.getElementById("dropButton").clientWidth - legendPadding,
+  border = 1,
+  bordercolor = "black";
+
+  // create legend
+  var legend = d3.select("#harbourLegend")
+                 .append("svg")
+                 .attr("id", "harbourGuide")
+                 .attr("width", legendWidth)
+                 .attr("height", legendHeight)
+                 .attr("border", border);
+
+  legend.append("rect")
+  			.attr("x", 0)
+  			.attr("y", 0)
+  			.attr("height", legendHeight)
+  			.attr("width", legendWidth)
+  			.style("stroke", bordercolor)
+  			.style("fill", "none")
+  			.style("stroke-width", border);
+
+  legend = legend.append("g")
+                 .attr("class", "legendHarbour");
+
+  // create color for legend
+  legend.selectAll("circle")
+        .data(harbourSizeList)
+        .enter()
+        .append("circle")
+        .attr("class", "harbourSize")
+        .attr("transform", function(d,i) {
+          return "translate(20," + (25 + (i * 25)) + ")"
+        })
+        .attr("r", function(d) {
+          return d["size"] + "px";
+        })
+        .style("fill", "red")
+
+  legend.selectAll("#harbourSize")
+        .data(harbourSizeList)
+        .enter()
+        .append("text")
+        .attr("class", "harbourLegendText")
+        .attr("transform", function(d,i) {
+          return "translate(35," + (27 + (i * 25)) + ")"
+        })
+        .text(function(d){
+          return d["icon"] + d["production"].toFixed(2) + " tonnes";
+        });
+  }
 
   function changeYear(error, map, harbours, currentYear){
 
@@ -84,19 +152,20 @@
         var selectedYear = d3.select("#myDropdown").node().value;
         currentYear = selectedYear;
         d3.select("#harbours").remove();
+        d3.select("#harbourGuide").remove();
         createHarbour(error, map, harbours, currentYear);
       })
   }
 
   // function to make the world map
-  function moveHarbour(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourSize) {
+  function moveHarbour(harbourSvg, path, mapWidth, mapHeight, rotated, projection, harbourMax, harbourSize) {
 
     var initX,
     mouse,
     minZoom = 1,
     maxZoom = 10,
-    mouseClicked = false,
     degrees = 360;
+    mouseClicked = false,
     s = 1;
 
     var zoom = d3.zoom()
@@ -152,17 +221,15 @@
 
 
       harbourSvg.attr("transform", "translate(" + t + ")scale(" + s + ")");
+
       harbourSvg.selectAll(".harbourloca").attr("transform", function(d){
         return "translate(" + projection([d["Longitude"],d["Latitude"]]) + ")";
       });
 
-
       //adjust the stroke width based on zoom level
       d3.selectAll(".countries").style("stroke-width", 1 / s);
-      d3.selectAll(".harbourloca").attr("r", function(d){
-         return Math.log((harbourSize/d["Weight of waste"])/s) + "px";
-       });
 
+      d3.selectAll(".harbourloca").attr("r", harbourSize);
 
       mouse = d3.mouse(this);
 
@@ -172,59 +239,3 @@
       }
     }
   }
-
-
-  // // legend function
-  // function Legend() {
-  //
-  //   // drawing svg for legend
-  //   var legendSvg = d3.select("#legend")
-  //                     .append("svg")
-  //                     .attr("id", "legend-svg")
-  //                     .attr("height", margin.height)
-  //                     .attr("width", 1.5 * w)
-  //                     .append("g")
-  //                     .attr("transform", "translate(" + 0.5 * margin.width + ",0)")
-  //                     .attr("id", "legend-id")
-  //
-  //   // x scale for legend
-  //   var xScaleLegend = d3.scaleLinear()
-  //                   .domain([d3.min(maxWage), d3.max(maxWage)])
-  //                   .range([1, w + 2 * margin.width])
-  //
-  //   // call x-axis legend
-  //   var xAxisLegend = d3.axisBottom(xScaleLegend)
-  //                       .tickSize(7)
-  //                       .tickValues(color.domain())
-  //
-  //   var legend = d3.select("#legend-id")
-  //                  .call(xAxisLegend)
-  //
-  //   // drawing of the mini bars of the legend
-  //   legend.selectAll("rect")
-  //            .data(color.range().map(function(d) {
-  //              var a = color.invertExtent(d)
-  //              if (a[0] == null) a[0] = xScaleLegend.domain()[0];
-  //              if (a[1] == null) a[1] = xScaleLegend.domain()[1];
-  //              return a;
-  //            }))
-  //            .enter()
-  //            .insert("rect", "tick")
-  //            .attr("height", 8)
-  //            .attr("width", function(d) { return xScaleLegend(d[1]) - xScaleLegend(d[0]); })
-  //            .attr("x", function(d) { return xScaleLegend(d[0]); })
-  //            .attr("fill", function(d) { return color(d[0]); })
-  //
-  //     // text of legend
-  //     legend.append("text")
-  //               .attr("id", "legend-text")
-  //               .attr("text-anchor", "end")
-  //               .attr("font-size", "14px")
-  //               .attr("fill", "black")
-  //               .attr("x", 150)
-  //               .attr("y", 35)
-  //               .text("Height of average wage")
-  // }
-  //
-  // // call legend
-  // Legend();
