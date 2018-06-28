@@ -2,8 +2,12 @@
 Name: Simon Kemmere
 Student number: 10798250
 Course: Programmeerproject
-Description: css file containing layout changes for index.html
+Description: css file containing layout changes for the several scripts and the index.html
 */
+
+body {
+  background-color: #fff2e6;
+}
 
 /* style map */
 #map {
@@ -39,6 +43,10 @@ Description: css file containing layout changes for index.html
 
 /* create borders between countries */
 .countries {
+  stroke: #333333;
+  stroke-width: 0.5;
+}
+.harbours{
   fill: #cccccc;
   stroke: #333333;
   stroke-width: 0.5;

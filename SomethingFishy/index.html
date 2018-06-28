@@ -2,6 +2,7 @@
 Student number: 10798250
 Course: Programmeerproject
 Description: File containing the main html so the project can be run -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,14 +18,15 @@ Description: File containing the main html so the project can be run -->
         <script src="javascripts/d3-tip.js"></script>
         <script src="javascripts/main.js"></script>
         <script src="javascripts/bar.js"></script>
-        <script src="javascripts/maps.js"></script>
-       <script src="javascripts/pie.js"></script>
+        <script src="javascripts/pie.js"></script>
         <script src="javascripts/harbours.js"></script>
         <script src="javascripts/dropDown.js"></script>
-
+        <script src="javascripts/map.js"></script>
       </head>
 
     <body>
+
+      <!-- Create navbar (source: bootstrap) -->
       <nav class="navbar navbar-fixed-top navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -35,34 +37,20 @@ Description: File containing the main html so the project can be run -->
             <li><a href="#story">Storytelling</a></li>
             <li><a href="#variables">Variables explained</a></li>
             <li><a href="#visualisations">Visualisations</a></li>
-
-            <!-- <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Visualisations
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#mapCol">Worldmap</a></li>
-                <li><a href="#bar">Bar chart</a></li>
-                <li><a href="#pie">Pie chart</a></li>
-              </ul>
-            </li> -->
             <li><a href="#">Sources</a></li>
           </ul>
         </div>
       </nav>
 
+      <!-- jumbotron container for header -->
       <div class="jumbotron text-center" id="top">
         <h2>Plastic production, threatened fish species and plastic collection from the oceans</h2>
           <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
-          <!-- <p style="font-size: 20px"> Data extracted from the following sources: <a href="https://data.oecd.org/eduatt/adult-education-level.htm#indicator-chart">Adult Education level</a>
-            and <a href=" https://data.oecd.org/earnwage/average-wages.htm#indicator-chart">Average wage</a></h1>
-          </p> -->
       </div>
-
-
       <div class="container" id="story">
         <br>
         <br>
-        <h2 class="title">Storytelling</h2>
+        <h2 class="title">Introduction</h2>
         <p>
           Changes to the current ecosystems in our oceans are being detected (SOURCE). These changes are mainly due to overfishing,
           but the second biggest influence can be led back to the amount of plastic found in oceans. Considering reports from all over the world (SOURCE)
@@ -73,25 +61,34 @@ Description: File containing the main html so the project can be run -->
           visualisations concerning the production of plastic in several countries over the world, the amount of threatened fish species in some of these countries and
           what is being done over the years (2014-2016) by countries to decrease the amount of plastic in the oceans.
       </div>
-
-
       <div class="container" id="variables">
        <div class="row">
          <div class="col-sm-6" id="plasticProd">
            <h2 id="plasticTitle">Plastic production</h2>
            <p>
-             Hier komt uitleg over plastic productie in de wereld.
+             Plastic is used in everything we use daily. Think of your lunchcontainer, cue tips, and even our vegetables are wrapped in plastic.
+             After it's used, it's most likely thrown away. That might be in the correct dirtcontainers, or perhaps on the street, where it might end up
+             in the oceans, either through wind or any other possibility. But before it ends up in the oceans, all this plastic needs to be produced somewhere.
+             Therefore I've visusalised the plastic production in several countries around the world. The darker the coloring of the country, the higher the plastic
+             production in this country. When hovering over a country, not an ocean, it's possible to zoom in while using the scroll functionality of your computer.
+             This way it is possible to zoom in on specific area's of the world, making it easier for you, the user, to get the data you're interested in. When a country has submitted
+             data, clicking on a country will update either both the bar chart and pie chart, or one independently if the other doesn't have any available data.
+
            </p>
         </div>
         <div class="col-sm-6" id="fishSpecies">
           <h2 id="fishTitle">Threatened fish species</h2>
           <p>
-            Hier komt uitleg over de bedreigde vissoorten in de wereld.
+            Besides all aspects influencing the ecosystems and the amount of fishspecies mentioned in the introduction, plastic is one of the main reasons these changes happen.
+            Therefore it might be logical to visualise the degree in which fishspecies are threatened in relation to  the different kind of existing fishspecies:
+            marine fish versus freshwater fish. These numbers are visualised in the bar chart on this website. Next to the bar chart, there is a pie chart containing the number
+            of threatened fishspecies as percentage of all known fishspecies of that kind (marine vs. freshwater fish) in relation to the different kind of fish (marine vs. freshwater fish).
+            That means, the percentage shown in the pie chart, is the ratio threatened freshwater fish vs. threatened marine fish as percentage of either the know freshwater fishspecies or
+            marine fishspecies. Hovering over the bar chart will show the absolute numbers of fish, for that kind of fish.
           </p>
         </div>
         </div>
       </div>
-
       <div class="container" id="visualisations">
         <h2 class="title">Visualisations</h2>
         <div class="row" id="worldZoom">
@@ -105,16 +102,16 @@ Description: File containing the main html so the project can be run -->
             <div id = "switchCol">
               <h2 id="switchTitle">Switch data</h2>
               <div id = "switch">
-                <form>
-                  <input type="radio" name="data" value="plastic" checked>Countries with known plastic production.<br>
-                  <input type="radio" name="data" value="fish">Countries with endangered fishspecies.
+
+                <!-- Bulletpoint form: (source: https://www.w3schools.com/html/html_forms.asp) -->
+                <form id="dataSwitch">
+                  <input type="radio" name="data" value="plasticData" checked>Countries with known plastic production.<br>
+                  <input type="radio" name="data" value="fishData">Countries with endangered fishspecies.
                 </form>
               </div>
-
             </div>
           </div>
         </div>
-
         <div class="row" id="legendWorldMap">
           <div class="col-sm-12" id="legendMap">
             <div id = "legendCol">
@@ -123,7 +120,6 @@ Description: File containing the main html so the project can be run -->
             </div>
           </div>
         </div>
-
         <div class="row" id="pieBar">
           <div class="col-sm-5" id="barCol">
             <h2 id="barChartTitle"></h2>
@@ -135,17 +131,15 @@ Description: File containing the main html so the project can be run -->
           </div>
           <div class="col-sm-2" id="pieLegend"></div>
         </div>
-
         <div class="row" id="worldHarbour">
           <div class="col-sm-4" id="explainHarbour">
             <div id = "harbourText">
               <h2 id="harbourSolution">Fishing for waste</h2>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum."
+              Luckily it isn't all bad. Since 2014, media attention has produced the idea that several harbours in a selection of countries have decided to fish for waste
+              in the waters in and around their harbour. Data from the following years shows a significant rise in extra harbours joining. In the map on the right
+              all harbours that have joined are shown. The size of the harbour is a representation of how much plastic waste has been extracted from the seas. The bigger the harbour,
+              the more plastic was extracted. On the right side of the map is a button, where different years of data can be loaded into the map. With this map too, it is possible
+              to zoom in on any desired location within the scales of the map. Zooming in will lead to a clearer picture which harbour does a better job at extracting waste from the oceans.
             </div>
           </div>
           <div class="col-sm-6" id="harbour">
@@ -154,6 +148,8 @@ Description: File containing the main html so the project can be run -->
               <div id = "harbourMap"></div>
             </div>
           </div>
+
+          <!-- Dropdown button (source: https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp) -->
           <div class="col-sm-2" id="dropButton">
             <div class="dropdown">
               <button onclick="dropDown()" class="dropbtn">Change year</button>
@@ -167,6 +163,5 @@ Description: File containing the main html so the project can be run -->
           <div class="col-sm-2" id="harbourLegend"></div>
         </div>
       </div>
-
   </body>
 </html>
