@@ -1,4 +1,4 @@
-[Pages](https://minordelay.github.io/Programmeerproject/SomethingFishy/index.html)
+[Click here to visit my website about something fishy!](https://minordelay.github.io/Programmeerproject/SomethingFishy/index.html)
 
 # Eindproject - something Fisy
 Simon Kemmere - 10798250
