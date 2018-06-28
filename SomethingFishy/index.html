@@ -43,14 +43,14 @@ Description: File containing the main html so the project can be run -->
       </nav>
 
       <!-- jumbotron container for header -->
-      <div class="jumbotron text-center" id="top">
+      <div class = "jumbotron text-center" id = "top">
         <h2>Plastic production, threatened fish species and plastic collection from the oceans</h2>
-          <p style="font-size: 30px">By Simon Kemmere, 10798250</p>
+          <p style = "font-size: 30px">By Simon Kemmere, 10798250</p>
       </div>
-      <div class="container" id="story">
+      <div class = "container" id = "story">
         <br>
         <br>
-        <h2 class="title">Introduction</h2>
+        <h2 class = "title">Introduction</h2>
         <p>
           Changes to the current ecosystems in our oceans are being detected (SOURCE). These changes are mainly due to overfishing,
           but the second biggest influence can be led back to the amount of plastic found in oceans. Considering reports from all over the world (SOURCE)
@@ -61,10 +61,10 @@ Description: File containing the main html so the project can be run -->
           visualisations concerning the production of plastic in several countries over the world, the amount of threatened fish species in some of these countries and
           what is being done over the years (2014-2016) by countries to decrease the amount of plastic in the oceans.
       </div>
-      <div class="container" id="variables">
-       <div class="row">
-         <div class="col-sm-6" id="plasticProd">
-           <h2 id="plasticTitle">Plastic production</h2>
+      <div class = "container" id = "variables">
+       <div class = "row">
+         <div class = "col-sm-6" id = "plasticProd">
+           <h2 id = "plasticTitle">Plastic production</h2>
            <p>
              Plastic is used in everything we use daily. Think of your lunchcontainer, cue tips, and even our vegetables are wrapped in plastic.
              After it's used, it's most likely thrown away. That might be in the correct dirtcontainers, or perhaps on the street, where it might end up
@@ -76,8 +76,8 @@ Description: File containing the main html so the project can be run -->
 
            </p>
         </div>
-        <div class="col-sm-6" id="fishSpecies">
-          <h2 id="fishTitle">Threatened fish species</h2>
+        <div class = "col-sm-6" id = "fishSpecies">
+          <h2 id = "fishTitle">Threatened fish species</h2>
           <p>
             Besides all aspects influencing the ecosystems and the amount of fishspecies mentioned in the introduction, plastic is one of the main reasons these changes happen.
             Therefore it might be logical to visualise the degree in which fishspecies are threatened in relation to  the different kind of existing fishspecies:
@@ -89,39 +89,55 @@ Description: File containing the main html so the project can be run -->
         </div>
         </div>
       </div>
-      <div class="container" id="visualisations">
-        <h2 class="title">Visualisations</h2>
-        <div class="row" id="worldZoom">
-          <div class="col-sm-9" id="worldmap">
+      <div class = "container" id = "visualisations">
+        <h2 class = "title">Visualisations</h2>
+        <div class = "row" id = "worldZoom">
+          <div class = "col-sm-9" id = "worldmap">
             <div id = "mapCol">
-              <h2 id="worldMapTitle">Worldmap</h2>
+              <h2 id = "worldMapTitle">Worldmap</h2>
               <div id = "map"></div>
             </div>
           </div>
+          <div class = "col-sm-3" id = "mapData">
+            <div id = "mapDataCol">
+              <h2 id = "mapDataTitle">Switch data</h2>
+              <div id = "dataSwitch">
+                <p>Color the map with different data. Plastic data is automatically selected.
+                  Switching to fish data will color the countries where data about threatened
+                  fishspecies is available.
+                </p>
+                <br>  
+                <form>
+                  <input type="radio" name="data" value="plastic" checked>Plastic data<br>
+                  <input type="radio" name="data" value="fish">Fish data<br>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row" id="legendWorldMap">
-          <div class="col-sm-12" id="legendMap">
+        <div class = "row" id = "legendWorldMap">
+          <div class = "col-sm-12" id = "legendMap">
             <div id = "legendCol">
-              <h4 id="legendTitle">Legend</h4>
+              <h4 id = "legendTitle">Legend</h4>
               <div id = "mapLegend"></div>
             </div>
           </div>
         </div>
-        <div class="row" id="pieBar">
-          <div class="col-sm-5" id="barCol">
-            <h2 id="barChartTitle"></h2>
+        <div class = "row" id = "pieBar">
+          <div class = "col-sm-5" id = "barCol">
+            <h2 id = "barChartTitle"></h2>
             <div id = "bar"></div>
           </div>
-          <div class="col-sm-5" id="pieCol">
-            <h2 id="pieChartTitle"></h2>
+          <div class = "col-sm-5" id = "pieCol">
+            <h2 id = "pieChartTitle"></h2>
             <div id = "pie"></div>
           </div>
-          <div class="col-sm-2" id="pieLegend"></div>
+          <div class = "col-sm-2" id = "pieLegend"></div>
         </div>
-        <div class="row" id="worldHarbour">
-          <div class="col-sm-4" id="explainHarbour">
+        <div class = "row" id = "worldHarbour">
+          <div class = "col-sm-4" id = "explainHarbour">
             <div id = "harbourText">
-              <h2 id="harbourSolution">Fishing for waste</h2>
+              <h2 id = "harbourSolution">Fishing for waste</h2>
               Luckily it isn't all bad. Since 2014, media attention has produced the idea that several harbours in a selection of countries have decided to fish for waste
               in the waters in and around their harbour. Data from the following years shows a significant rise in extra harbours joining. In the map on the right
               all harbours that have joined are shown. The size of the harbour is a representation of how much plastic waste has been extracted from the seas. The bigger the harbour,
@@ -129,31 +145,31 @@ Description: File containing the main html so the project can be run -->
               to zoom in on any desired location within the scales of the map. Zooming in will lead to a clearer picture which harbour does a better job at extracting waste from the oceans.
             </div>
           </div>
-          <div class="col-sm-6" id="harbour">
+          <div class = "col-sm-6" id = "harbour">
             <div id = "harbourCol">
-              <h2 id="harbourTitle"></h2>
+              <h2 id = "harbourTitle"></h2>
               <div id = "harbourMap"></div>
             </div>
           </div>
 
           <!-- Dropdown button (source: https://www.w3schools.com/bootstrap/bootstrap_dropdowns.asp) -->
-          <div class="col-sm-2" id="dropButton">
-            <div class="dropdown">
-              <button onclick="dropDown()" class="dropbtn">Change year</button>
-              <select id="myDropdown" class="dropdown-content">
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
+          <div class = "col-sm-2" id = "dropButton">
+            <div class = "dropdown">
+              <button onclick = "dropDown()" class = "dropbtn">Change year</button>
+              <select id = "myDropdown" class = "dropdown-content">
+                <option value = "2014">2014</option>
+                <option value = "2015">2015</option>
+                <option value = "2016">2016</option>
               </select>
             </div>
           </div>
-          <div class="col-sm-2" id="harbourLegend"></div>
+          <div class = "col-sm-2" id = "harbourLegend"></div>
         </div>
-        <div id="sources">
+        <div id = "sources">
           <h4>Sources</h4>
-          <li><a href="http://geodata.grid.unep.ch/options.php?selectedID=2258&selectedDatasettype=17">Plastic data</a></li>
-          <li><a href="https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE">Fish data</a></li>
-          <li><a href="https://odims.ospar.org/odims_data_files/">Harbour data</a></li>
+          <li><a href = "http://geodata.grid.unep.ch/options.php?selectedID=2258&selectedDatasettype=17">Plastic data</a></li>
+          <li><a href = "https://stats.oecd.org/Index.aspx?DataSetCode=WILD_LIFE">Fish data</a></li>
+          <li><a href = "https://odims.ospar.org/odims_data_files/">Harbour data</a></li>
       </div>
   </body>
 </html>
