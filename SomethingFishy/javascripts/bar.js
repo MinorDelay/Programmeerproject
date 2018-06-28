@@ -5,6 +5,9 @@
 * Description: file containing the script that runs the bar chart.
 */
 
+// design based on the following: https://bl.ocks.org/mbostock/3885304 &
+// https://bl.ocks.org/syncopika/f1c9036b0deb058454f825238a95b6be
+
 // declare global variables needed for upcoming functions
 var barSvg, barWidth, barHeight, barPadding, country, xScale, yScale, barTip, fish;
 

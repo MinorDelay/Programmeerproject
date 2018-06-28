@@ -5,6 +5,8 @@
 * Description: file containing the script that runs the pie chart
 */
 
+// design based on the following: https://bl.ocks.org/lorenzopub/3003e3fc845b47dda25a26b35ca40b4b
+
 // declare global variables
 var pieWidth, pieHeight, xArc, yArc, pieSvg, colorList, color, path, label, pie, arcBorder, fishes;
 
