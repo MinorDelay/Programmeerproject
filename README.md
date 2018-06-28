@@ -1,4 +1,4 @@
-[Pages](https://minordelay.github.io/Programmeerproject/index.html)
+[Pages](https://minordelay.github.io/Programmeerproject/SomethingFishy/index.html)
 
 # Eindproject - something Fisy
 Simon Kemmere - 10798250
