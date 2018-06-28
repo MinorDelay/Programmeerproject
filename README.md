@@ -40,5 +40,13 @@ on the righthand side of the map.
 
 # Used libraries
 
+- Bootstrap css [LICENCE](https://github.com/twbs/bootstrap/blob/master/LICENSE)
+- D3V4 [LICENCE](https://github.com/d3/d3/blob/master/LICENSE)
+- Bar chart [NO LICENCE](https://bl.ocks.org/syncopika/f1c9036b0deb058454f825238a95b6be)
+- Pie chart [LICENCE](https://opensource.org/licenses/GPL-3.0)
+- World map [NO LICENCE](http://bl.ocks.org/d3noob/5193723)
+- Zoom [NO LICENCE](http://bl.ocks.org/d3noob/5193723)
+- Plotting points on map [NO LICENCE](http://bl.ocks.org/d3noob/5193723)
+
 Copyright © 2018 Simon Kemmere
 Everyone is free to use this code however the please.
