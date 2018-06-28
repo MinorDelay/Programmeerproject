@@ -39,3 +39,6 @@ This map too is zoom and draggable. An extra feature concerning this map is that
 on the righthand side of the map.
 
 # Used libraries
+
+Copyright © 2018 Simon Kemmere
+Everyone is free to use this code however the please.
