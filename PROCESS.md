@@ -119,5 +119,16 @@ Still to do:
 - Let 2nd HTML-element switch to coloring where data is from fishes.
 - Add story.
 
+## Thursday 28-6-18 / Day 17
+
+- Added story
+- Edited legend -> tooltip didn't work. Fixed that too.
+- Created all necessary md's.
+- Was late to submission; bummer; trying to work extra to compensate for grade deduction.
+- Updated process.md for single to final time.
+
+Still to do:
+- Add 2nd html-element.
+- fix legend text worldmap.
 
 
