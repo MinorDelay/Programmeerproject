@@ -18,7 +18,7 @@ zijn getekend op een wereldkaart, waarbij een grotere weergave van een haven cor
 met meer opgehaald plastic afval. Vervolgens is het met een dropdown knop mogelijk om van de
 jaren 2014 tot en met 2016 de meewerkende havens te visualiseren.
 
-[screenshot](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/doc/screenshot1.png)
+![screenshot](https://github.com/MinorDelay/Programmeerproject/blob/master/Something_fishy/doc/screenshot1.png)
 
 ## Technisch design
 ### index.html
