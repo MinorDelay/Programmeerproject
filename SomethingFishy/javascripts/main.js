@@ -23,8 +23,22 @@ window.onload = function () {
 
       loadBar(error, response[2])
       createPie(error, response[3])
-      createMap(error, response[0], response[1])
+      createPlasticMap(error, response[0], response[1])
       getHarbourData(error, response[0], response[4])
+
+      $("#fish").click(function() { removePlasticMap() })
+      function removePlasticMap() {
+        d3.select("#mapWorld").remove();
+        d3.select("#mapLegendSvg").remove();
+        createFishMap(error, response[0], response[2])
+      }
+
+      $("#plastic").click(function() { removeFishMap() })
+      function removeFishMap() {
+        d3.select("#mapWorld").remove();
+        d3.select("#mapLegendSvg").remove();
+        createPlasticMap(error, response[0], response[1])
+      }
 
   }
 };
