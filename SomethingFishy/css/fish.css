@@ -5,6 +5,11 @@ Course: Programmeerproject
 Description: css file containing layout changes for the several scripts and the index.html
 */
 
+#top {
+  background-image: url(../doc/header.jpg);
+  background-blend-mode: overlay;
+}
+
 body {
   background-color: #fff2e6;
 }
