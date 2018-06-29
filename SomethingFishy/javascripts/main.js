@@ -26,13 +26,18 @@ window.onload = function () {
       createPlasticMap(error, response[0], response[1])
       getHarbourData(error, response[0], response[4])
 
+
+      // if bullet fish data is clicked load fishMap.js
       $("#fish").click(function() { removePlasticMap() })
       function removePlasticMap() {
         d3.select("#mapWorld").remove();
         d3.select("#mapLegendSvg").remove();
+        document.getElementById("legendTitle").innerHTML = "";
+
         createFishMap(error, response[0], response[2])
       }
 
+      // if bullet plastic data is clicked load plasticMap.js
       $("#plastic").click(function() { removeFishMap() })
       function removeFishMap() {
         d3.select("#mapWorld").remove();
