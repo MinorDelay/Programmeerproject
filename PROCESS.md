@@ -131,4 +131,11 @@ Still to do:
 - Add 2nd html-element.
 - fix legend text worldmap.
 
+## Friday 29-6-18 / Day 18
+
+- Added 2nd html-element.
+- Fixed legend text worldmap.
+- Added jumbotron image.
+- Added sources.
+
 
