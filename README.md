@@ -24,6 +24,10 @@ concerning the production of plastic, the tooltip will return unknown regarding 
 
 This picture shows how its possible for the user to zoom in on the map.
 
+![switchworld](https://github.com/MinorDelay/Programmeerproject/blob/master/SomethingFishy/doc/switchworld.png)
+
+Here becomes clear how you can change to different data.
+
 ![charts](https://github.com/MinorDelay/Programmeerproject/blob/master/SomethingFishy/doc/charts.png)
 
 In this shot the charts that when clicking upon a country will update.
