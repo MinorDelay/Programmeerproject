@@ -246,7 +246,7 @@ function harbourLegend(harbourSizeList) {
   legendPadding = 30,
   legendWidth = document.getElementById("dropButton").clientWidth - legendPadding,
   border = 1,
-  bordercolor = "black";
+  borderColor = "black";
 
   // drawing svg for legend
   var legend = d3.select("#harbourLegend")
@@ -262,7 +262,7 @@ function harbourLegend(harbourSizeList) {
   			.attr("y", 0)
   			.attr("height", legendHeight)
   			.attr("width", legendWidth)
-  			.style("stroke", bordercolor)
+  			.style("stroke", borderColor)
   			.style("fill", "none")
   			.style("stroke-width", border);
 
